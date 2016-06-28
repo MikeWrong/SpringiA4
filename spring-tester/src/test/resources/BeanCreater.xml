@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:c="http://www.springframework.org/schema/c"
-       xmlns:p="http://www.springframework.org/schema/p" xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-      http://www.springframework.org/schema/beans/spring-beans.xsd">
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/util
+          http://www.springframework.org/schema/util/spring-util.xsd">
 
     <bean id="a" class="A"/>
 
@@ -44,5 +48,16 @@
         属性的名字使用了“p:”前缀, 表明我们所设置的是一个属性. 接下来就是要注入的属性名. 最后, 属性的名称以“-ref”结尾, 这会提示Spring要进行装配的是引用, 而不是字面量.
      -->
     <bean id="dMethod2" class="D" c:info="String ..." p:b-ref="b"/>
+
+    <!--
+        util 命名空间所提供的功能之一就是<util:list>元素, 它会创建一个列表 bean.
+    -->
+    <util:list id="stringList">
+        <value>x</value>
+        <value>y</value>
+        <value>z</value>
+    </util:list>
+
+    <bean id="dMethod3" class="D" c:info="String ..." p:list-ref="stringList"/>
 
 </beans>

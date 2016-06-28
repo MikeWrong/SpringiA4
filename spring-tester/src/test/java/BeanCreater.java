@@ -1,6 +1,7 @@
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.assertNotNull;
@@ -78,6 +79,11 @@ class D {
     public void setB(B b) {
         assertNotNull(b);
         System.out.println("call method setB");
+    }
+
+    public void setList(List<String> stringList) {
+        assertNotNull(stringList);
+        System.out.println("call method setList");
     }
 
 }
