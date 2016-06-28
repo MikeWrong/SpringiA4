@@ -14,8 +14,8 @@ import static org.junit.Assert.assertNotNull;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = BeanCreaterXmlConfig.class, loader = AnnotationConfigContextLoader.class)
-//@ContextConfiguration(classes = BeanCreaterJavaConfig.class, loader = AnnotationConfigContextLoader.class)
+//@ContextConfiguration(classes = BeanCreaterXmlConfig.class, loader = AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes = BeanCreaterJavaConfig.class, loader = AnnotationConfigContextLoader.class)
 public class BeanCreaterTest {
 
     @Autowired
