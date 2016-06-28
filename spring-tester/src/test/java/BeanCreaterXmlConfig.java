@@ -1,5 +1,5 @@
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 
 // @Configuration 注解该类,等价与XML中配置beans;
 // @Bean 标注方法等价于XML中配置bean
@@ -10,6 +10,6 @@ import org.springframework.context.annotation.Configuration;
  * 6/28/16.
  */
 @Configuration
-@ComponentScan
-public class BeanCreaterConfiguration {
+@ImportResource("classpath:BeanCreater.xml")
+public class BeanCreaterXmlConfig {
 }
