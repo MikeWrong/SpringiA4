@@ -1,6 +1,8 @@
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Set;
+
 import static org.junit.Assert.assertNotNull;
 
 // @Configuration 注解该类,等价与XML中配置beans;
@@ -55,6 +57,17 @@ class C {
 }
 
 class D {
+
     public D(String info) {
+        assertNotNull(info);
+        System.out.println("create object D->String");
     }
+
+    public D(Set<String> set, String string, C c) {
+        assertNotNull(set);
+        assertNotNull(string);
+        assertNotNull(c);
+        System.out.println("create object D->Set|String|C");
+    }
+
 }

@@ -21,4 +21,16 @@
     <!-- 为构造函数参数 info 字段赋值 'String ...' -->
     <bean id="d" class="D" c:info="String ..."/>
 
+    <bean id="dSet" class="D">
+        <constructor-arg index="0">
+            <set>
+                <value type="java.lang.String">x</value>
+                <value type="java.lang.String">y</value>
+                <value type="java.lang.String">zc</value>
+            </set>
+        </constructor-arg>
+        <constructor-arg index="1" value="string ..."/>
+        <constructor-arg index="2" ref="c"/>
+    </bean>
+
 </beans>
