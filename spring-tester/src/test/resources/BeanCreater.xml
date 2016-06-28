@@ -79,6 +79,7 @@
                 <ref bean="prop2"/>
             </list>
         </constructor-arg>
+        <constructor-arg name="field" ref="prop3"/>
     </bean>
 
 </beans>

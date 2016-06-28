@@ -75,12 +75,22 @@ class D {
         System.out.println("create object D->Set|String|C");
     }
 
-    public D(List<Properties> ps) {
+    public D(List<Properties> ps, String field) {
+        assertNotNull(field);
+        System.out.println(field);
         for (Properties p : ps) {
             assertNotNull(p);
             System.out.println(p);
         }
         System.out.println("call method setProperties");
+    }
+
+    public String getPf() {
+        return pf;
+    }
+
+    public void setPf(String pf) {
+        this.pf = pf;
     }
 
     public void setA(A a) {
