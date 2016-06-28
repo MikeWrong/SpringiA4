@@ -18,4 +18,7 @@
      -->
     <bean id="c" class="C" c:_0-ref="b"/>
 
+    <!-- 为构造函数参数 info 字段赋值 'String ...' -->
+    <bean id="d" class="D" c:info="String ..."/>
+
 </beans>

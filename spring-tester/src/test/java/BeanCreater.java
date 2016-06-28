@@ -53,3 +53,8 @@ class C {
         System.out.println("create object C");
     }
 }
+
+class D {
+    public D(String info) {
+    }
+}
