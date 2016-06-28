@@ -34,10 +34,10 @@
     </bean>
 
 
+    <!-- 使用 setter (setA(A o)) 方法注入属性 -->
     <bean id="dMethod1" class="D" c:info="String ...">
         <property name="a" ref="a"/>
     </bean>
-
 
     <!--
         Spring提供了更加简洁的 p 命名空间, 作为<property>元素的替代方案.
