@@ -3,6 +3,9 @@ import org.springframework.context.annotation.Configuration;
 
 import static org.junit.Assert.assertNotNull;
 
+// @Configuration 注解该类,等价与XML中配置beans;
+// @Bean 标注方法等价于XML中配置bean
+
 // 运行过程中 Spring 容器为 A,B,C 类仅执行一次构建
 
 /**
