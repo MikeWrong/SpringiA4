@@ -11,7 +11,7 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = BeanCreater.class, loader = AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes = BeanCreaterConfiguration.class, loader = AnnotationConfigContextLoader.class)
 public class BeanCreaterTest {
 
     @Autowired
