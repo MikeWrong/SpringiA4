@@ -60,4 +60,25 @@
 
     <bean id="dMethod3" class="D" c:info="String ..." p:list-ref="stringList"/>
 
+    <util:constant id="sf" static-field="D.sf"/>
+
+    <util:properties id="prop1">
+        <prop key="k1">v1</prop>
+        <prop key="k2">v2</prop>
+        <prop key="k3">v3</prop>
+    </util:properties>
+
+    <util:properties id="prop2" location="log4j.properties"/>
+
+    <util:property-path id="prop3" path="d.pf"/>
+
+    <bean id="dMethod4" class="D">
+        <constructor-arg name="ps">
+            <list>
+                <ref bean="prop1"/>
+                <ref bean="prop2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
 </beans>

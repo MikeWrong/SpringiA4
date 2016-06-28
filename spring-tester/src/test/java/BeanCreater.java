@@ -2,6 +2,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
+import java.util.Properties;
 import java.util.Set;
 
 import static org.junit.Assert.assertNotNull;
@@ -59,6 +60,9 @@ class C {
 
 class D {
 
+    public static String sf = "Static field";
+    public String pf = "Public field";
+
     public D(String info) {
         assertNotNull(info);
         System.out.println("create object D->String");
@@ -69,6 +73,14 @@ class D {
         assertNotNull(string);
         assertNotNull(c);
         System.out.println("create object D->Set|String|C");
+    }
+
+    public D(List<Properties> ps) {
+        for (Properties p : ps) {
+            assertNotNull(p);
+            System.out.println(p);
+        }
+        System.out.println("call method setProperties");
     }
 
     public void setA(A a) {
