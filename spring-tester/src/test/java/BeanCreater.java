@@ -70,4 +70,14 @@ class D {
         System.out.println("create object D->Set|String|C");
     }
 
+    public void setA(A a) {
+        assertNotNull(a);
+        System.out.println("call method setA");
+    }
+
+    public void setB(B b) {
+        assertNotNull(b);
+        System.out.println("call method setB");
+    }
+
 }
