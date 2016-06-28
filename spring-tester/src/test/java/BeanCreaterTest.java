@@ -1,9 +1,12 @@
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
+
+import static org.junit.Assert.assertNotNull;
 
 /**
  * YUAN
@@ -26,6 +29,18 @@ public class BeanCreaterTest {
 
     @Test
     public void t() {
+        assertNotNull(a);
+        assertNotNull(b);
+        assertNotNull(c);
+    }
+
+}
+
+class Main {
+
+    public static void main(String[] args) {
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("BeanCreater.xml");
+        applicationContext.start();
     }
 
 }
