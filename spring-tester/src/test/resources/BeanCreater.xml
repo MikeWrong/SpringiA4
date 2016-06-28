@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
       http://www.springframework.org/schema/beans/spring-beans.xsd">
@@ -10,8 +11,7 @@
         <constructor-arg ref="a"/>
     </bean>
 
-    <bean id="c" class="C">
-        <constructor-arg ref="b"/>
-    </bean>
+    <!-- 在 c 命名空间和模式声明之后，我们就可以使用它来声明构造器参数了 -->
+    <bean id="c" class="C" c:_0-ref="b"/>
 
 </beans>
