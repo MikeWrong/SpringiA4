@@ -38,6 +38,11 @@
         <property name="a" ref="a"/>
     </bean>
 
+
+    <!--
+        Spring提供了更加简洁的 p 命名空间, 作为<property>元素的替代方案.
+        属性的名字使用了“p:”前缀, 表明我们所设置的是一个属性. 接下来就是要注入的属性名. 最后, 属性的名称以“-ref”结尾, 这会提示Spring要进行装配的是引用, 而不是字面量.
+     -->
     <bean id="dMethod2" class="D" c:info="String ..." p:b-ref="b"/>
 
 </beans>
