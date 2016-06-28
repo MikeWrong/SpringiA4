@@ -12,6 +12,8 @@ import static org.junit.Assert.assertNotNull;
 @Configuration
 public class BeanCreater {
 
+    // Spring 检测到方法 new B(a()) 和 方法 c(B b) 使用了 @Bean 注解, 并将对象创建的任务交给了 Spring 容器完成.
+
     @Bean
     public A a() {
         return new A();
