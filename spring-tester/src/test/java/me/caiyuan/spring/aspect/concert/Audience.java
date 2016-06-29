@@ -1,12 +1,14 @@
 package me.caiyuan.spring.aspect.concert;
 
 import org.aspectj.lang.annotation.*;
+import org.springframework.stereotype.Component;
 
 /**
  * YUAN
  * 6/29/16.
  */
 @Aspect
+@Component
 public class Audience {
 
     /**
