@@ -13,7 +13,7 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
  * 6/29/16.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = Audience.class, loader = AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes = ConcertConfig.class, loader = AnnotationConfigContextLoader.class)
 public class PerformanceTest {
 
     @Autowired

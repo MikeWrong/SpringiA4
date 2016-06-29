@@ -1,4 +1,4 @@
-package me.caiyuan.spring.aspect;
+package me.caiyuan.spring.aspect.concert;
 
 import org.aspectj.lang.annotation.*;
 
@@ -7,12 +7,12 @@ import org.aspectj.lang.annotation.*;
  * 6/29/16.
  */
 @Aspect
-public class Audience2 {
+public class Audience {
 
     /**
      * 通过@Pointcut注解声明频繁使用的切点表达式
      */
-    @Pointcut("execution(** concert.Performance.perform(..))")
+    @Pointcut("execution(* me.caiyuan.spring.aspect.concert.Performance.perform(..))")
     public void performance() {
     }
 
