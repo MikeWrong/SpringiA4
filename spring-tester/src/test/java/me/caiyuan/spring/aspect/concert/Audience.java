@@ -1,7 +1,10 @@
 package me.caiyuan.spring.aspect.concert;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
+
+// @Aspect 声明切面
 
 /**
  * YUAN
@@ -40,6 +43,21 @@ public class Audience {
     @AfterThrowing("performance()")
     public void demandRefund() {
         System.out.println("Demanding a refund");
+    }
+
+
+    // 环绕通知: 前置通知 + 后置通知 & 失败处理
+    @Around("performance()")
+    public void watchPerformance(ProceedingJoinPoint jp) {
+        try {
+            System.out.println("Silencing cell phones");
+            System.out.println("Taking seats");
+            jp.proceed();
+            System.out.println("CLAP CLAP CLAP !!!");
+        } catch (Throwable t) {
+            System.out.println("Demanding a refund");
+            t.printStackTrace();
+        }
     }
 
 }
