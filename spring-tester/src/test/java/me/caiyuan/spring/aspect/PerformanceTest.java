@@ -43,6 +43,10 @@ public class PerformanceTest {
         Encoreable encoreable = (Encoreable) performance;
         encoreable.performEncore();
         System.out.println("performance.equals(encoreable) = " + performance.equals(encoreable));
+        Class<? extends Performance> clz = performance.getClass();
+        for (Class<?> c : clz.getInterfaces()) {
+            System.out.println(c);
+        }
         System.out.println();
 
     }
