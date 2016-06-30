@@ -1,5 +1,6 @@
 package me.caiyuan.spring.aspect;
 
+import me.caiyuan.spring.aspect.concert.Audience;
 import me.caiyuan.spring.aspect.concert.Performance;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,11 +21,16 @@ public class PerformanceTest {
     @Autowired
     private Performance performance;
 
+    @Autowired
+    private Audience audience;
+
     @Test
     public void t() {
         performance.perform1();
         System.out.println("==================");
         performance.perform2(123);
+
+        System.out.println(audience.getArg());
     }
 
 }

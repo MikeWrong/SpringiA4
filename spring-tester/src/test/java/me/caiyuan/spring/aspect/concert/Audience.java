@@ -75,6 +75,12 @@ public class Audience {
         return result;
     }
 
+    private Object arg;
+
+    public Object getArg() {
+        return arg;
+    }
+
     @Around("performance2(int)")
     public Object watchPerformance2(ProceedingJoinPoint jp) {
         Object result = null;
@@ -84,6 +90,7 @@ public class Audience {
             Object[] args = jp.getArgs();
             System.out.println(Arrays.toString(args));
             result = jp.proceed(args);
+            arg = args[0];
             System.out.println("CLAP CLAP CLAP !!!");
         } catch (Throwable t) {
             System.out.println("Demanding a refund");
