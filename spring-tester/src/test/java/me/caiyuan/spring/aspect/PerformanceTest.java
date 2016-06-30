@@ -6,14 +6,15 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.support.AnnotationConfigContextLoader;
+import org.springframework.test.context.support.DelegatingSmartContextLoader;
 
 /**
  * YUAN
  * 6/29/16.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = ConcertConfig.class, loader = AnnotationConfigContextLoader.class)
+//@ContextConfiguration(classes = ConcertJavaConfig.class, loader = AnnotationConfigContextLoader.class)
+@ContextConfiguration(locations = {"classpath:AspectConcert.xml"}, loader = DelegatingSmartContextLoader.class)
 public class PerformanceTest {
 
     @Autowired

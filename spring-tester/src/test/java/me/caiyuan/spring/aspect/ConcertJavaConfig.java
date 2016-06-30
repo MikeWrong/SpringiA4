@@ -11,7 +11,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @Configuration
 @EnableAspectJAutoProxy
 @ComponentScan
-public class ConcertConfig {
+public class ConcertJavaConfig {
 
     /*
     @Bean
