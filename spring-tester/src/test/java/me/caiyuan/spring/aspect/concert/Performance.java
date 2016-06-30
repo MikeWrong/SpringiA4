@@ -9,8 +9,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class Performance {
 
-    public void perform() {
-        System.out.println("Performance.perform()");
+    public void perform1() {
+        System.out.println("Performance.perform1()");
+    }
+
+    public String perform2() {
+        System.out.println("Performance.perform2()");
+        return "String(Performance.perform2()|result)";
     }
 
 }

@@ -22,7 +22,9 @@ public class PerformanceTest {
 
     @Test
     public void t() {
-        performance.perform();
+        performance.perform1();
+        System.out.println("==================");
+        performance.perform2();
     }
 
 }

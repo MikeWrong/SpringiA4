@@ -17,7 +17,7 @@ public class Audience {
     /**
      * 通过@Pointcut注解声明频繁使用的切点表达式
      */
-    @Pointcut("execution(* me.caiyuan.spring.aspect.concert.Performance.perform(..))")
+    @Pointcut("execution(* me.caiyuan.spring.aspect.concert.Performance.perform*(..))")
     public void performance() {
     }
 
@@ -48,16 +48,19 @@ public class Audience {
 
     // 环绕通知: 前置通知 + 后置通知 & 失败处理
     @Around("performance()")
-    public void watchPerformance(ProceedingJoinPoint jp) {
+    public Object watchPerformance(ProceedingJoinPoint jp) {
+        Object result = null;
         try {
             System.out.println("Silencing cell phones");
             System.out.println("Taking seats");
-            jp.proceed();
+            result = jp.proceed();
             System.out.println("CLAP CLAP CLAP !!!");
         } catch (Throwable t) {
             System.out.println("Demanding a refund");
             t.printStackTrace();
         }
+        System.out.println("result >>> " + result);
+        return result;
     }
 
 }
