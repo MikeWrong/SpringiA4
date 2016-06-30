@@ -24,7 +24,7 @@ public class PerformanceTest {
     public void t() {
         performance.perform1();
         System.out.println("==================");
-        performance.perform2();
+        performance.perform2(123);
     }
 
 }

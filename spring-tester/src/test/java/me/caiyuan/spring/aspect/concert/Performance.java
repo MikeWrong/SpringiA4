@@ -13,7 +13,7 @@ public class Performance {
         System.out.println("Performance.perform1()");
     }
 
-    public String perform2() {
+    public String perform2(int i) {
         System.out.println("Performance.perform2()");
         return "String(Performance.perform2()|result)";
     }
