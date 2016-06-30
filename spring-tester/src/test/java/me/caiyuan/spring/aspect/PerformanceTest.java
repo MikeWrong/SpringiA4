@@ -2,6 +2,7 @@ package me.caiyuan.spring.aspect;
 
 import me.caiyuan.spring.aspect.concert.Audience;
 import me.caiyuan.spring.aspect.concert.Performance;
+import me.caiyuan.spring.aspect.encoreable.Encoreable;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +25,26 @@ public class PerformanceTest {
     @Autowired
     private Audience audience;
 
+    @Autowired
+    private Encoreable encoreable;
+
     @Test
     public void t() {
+        System.out.println();
         performance.perform1();
         System.out.println("==================");
-        performance.perform2(123);
 
+        System.out.println();
+        performance.perform2(123);
         System.out.println(audience.getArg());
+        System.out.println("==================");
+
+        System.out.println();
+        Encoreable encoreable = (Encoreable) performance;
+        encoreable.performEncore();
+        System.out.println("performance.equals(encoreable) = " + performance.equals(encoreable));
+        System.out.println();
+
     }
 
 }
