@@ -46,6 +46,9 @@ public class Audience {
     }
 
 
+    // ProceedingJoinPoint 这个对象是必须要有的，因为你要在通知中通过它来调用被通知的方法.
+    // 通知方法中可以做任何的事情，当要将控制权交给被通知的方法时，它需要调用 ProceedingJoinPoint 的 proceed() 方法.
+
     // 环绕通知: 前置通知 + 后置通知 & 失败处理
     @Around("performance()")
     public Object watchPerformance(ProceedingJoinPoint jp) {
