@@ -14,7 +14,7 @@ public class Performance {
     }
 
     public String perform2(int i) {
-        System.out.println("Performance.perform2()");
+        System.out.println("Performance.perform2(" + i + ")");
         return "String(Performance.perform2()|result)";
     }
 
