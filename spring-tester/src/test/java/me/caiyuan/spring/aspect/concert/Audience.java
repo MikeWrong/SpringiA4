@@ -23,6 +23,9 @@ public class Audience {
     public void performance1() {
     }
 
+    /**
+     * 切点表达式中的args(i)限定符。它表明传递给perform()方法的int类型参数也会传递到通知中去。参数的名称 i 也与切点方法签名中的参数相匹配。
+     */
     @Pointcut("execution(* me.caiyuan.spring.aspect.concert.Performance.perform*(int)) && args(i)")
     public void performance2(int i) {
     }
