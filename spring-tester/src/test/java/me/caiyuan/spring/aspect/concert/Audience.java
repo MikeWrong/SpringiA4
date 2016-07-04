@@ -31,25 +31,25 @@ public class Audience {
     }
 
     // 表演之前
-    @Before("performance1()")
+//    @Before("performance1()")
     public void silenceCallPhones() {
         System.out.println("Silencing cell phones");
     }
 
     // 表演之前
-    @Before("performance1()")
+//    @Before("performance1()")
     public void taskSeats() {
         System.out.println("Taking seats");
     }
 
     // 表演之后
-    @AfterReturning("performance1()")
+//    @AfterReturning("performance1()")
     public void applause() {
         System.out.println("CLAP CLAP CLAP !!!");
     }
 
     // 表演失败之后
-    @AfterThrowing("performance1()")
+//    @AfterThrowing("performance1()")
     public void demandRefund() {
         System.out.println("Demanding a refund");
     }
