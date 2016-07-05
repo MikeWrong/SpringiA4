@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/util
+          http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- 混合两种配置方式 JavaConfig, Xml 使用 -->
+    <!--<context:component-scan base-package="me.caiyuan.spring"/>-->
+
+
+    <bean id="a" class="me.caiyuan.spring.autowired.A"/>
+
+    <bean id="b" class="me.caiyuan.spring.autowired.B">
+        <constructor-arg ref="a"/>
+    </bean>
+
+    <!-- 
+        在 c 命名空间和模式声明之后, 我们就可以使用它来声明构造器参数了; 属性名以“c:”开头, 也就是命名空间的前缀.
+        接下来就是要装配的构造器参数名, 在此之后是“-ref”, 这是一个命名的约定, 它会告诉Spring, 正在装配的是一个bean的引用.
+        数字 0 就是参数的索引.
+     -->
+    <bean id="c" class="me.caiyuan.spring.autowired.C" c:_0-ref="b"/>
+
+    <!-- 为构造函数参数 info 字段赋值 'String ...' -->
+    <bean id="d" class="me.caiyuan.spring.autowired.D" c:info="String ..."/>
+
+    <bean id="dSet" class="me.caiyuan.spring.autowired.D">
+        <constructor-arg index="0">
+            <set>
+                <value type="java.lang.String">x</value>
+                <value type="java.lang.String">y</value>
+                <value type="java.lang.String">zc</value>
+            </set>
+        </constructor-arg>
+        <constructor-arg index="1" value="string ..."/>
+        <constructor-arg index="2" ref="c"/>
+    </bean>
+
+
+    <!-- 使用 setter (setA(A o)) 方法注入属性 -->
+    <bean id="dMethod1" class="me.caiyuan.spring.autowired.D" c:info="String ...">
+        <property name="a" ref="a"/>
+    </bean>
+
+    <!--
+        Spring提供了更加简洁的 p 命名空间, 作为<property>元素的替代方案.
+        属性的名字使用了“p:”前缀, 表明我们所设置的是一个属性. 接下来就是要注入的属性名. 最后, 属性的名称以“-ref”结尾, 这会提示Spring要进行装配的是引用, 而不是字面量.
+     -->
+    <bean id="dMethod2" class="me.caiyuan.spring.autowired.D" c:info="String ..." p:b-ref="b"/>
+
+    <!--
+        util 命名空间所提供的功能之一就是<util:list>元素, 它会创建一个列表 bean.
+    -->
+    <util:list id="stringList">
+        <value>x</value>
+        <value>y</value>
+        <value>z</value>
+    </util:list>
+
+    <bean id="dMethod3" class="me.caiyuan.spring.autowired.D" c:info="String ..." p:list-ref="stringList"/>
+
+    <util:constant id="sf" static-field="me.caiyuan.spring.autowired.D.sf"/>
+
+    <util:properties id="prop1">
+        <prop key="k1">v1</prop>
+        <prop key="k2">v2</prop>
+        <prop key="k3">v3</prop>
+    </util:properties>
+
+    <util:properties id="prop2" location="log4j.properties"/>
+
+    <util:property-path id="prop3" path="d.pf"/>
+
+    <bean id="dMethod4" class="me.caiyuan.spring.autowired.D">
+        <constructor-arg name="ps">
+            <list>
+                <ref bean="prop1"/>
+                <ref bean="prop2"/>
+            </list>
+        </constructor-arg>
+        <constructor-arg name="field" ref="prop3"/>
+    </bean>
+
+</beans>
