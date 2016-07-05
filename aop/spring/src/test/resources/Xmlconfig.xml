@@ -30,4 +30,16 @@
         </aop:aspect>
     </aop:config>
 
+    <!-- 通过切面为目标对象添加额外的接口实现 -->
+
+    <bean id="defaultEncoreable" class="me.caiyuan.spring.xmlconfig.encoreable.DefaultEncoreable"/>
+
+    <aop:config>
+        <aop:aspect>
+            <aop:declare-parents types-matching="me.caiyuan.spring.xmlconfig.Performance+"
+                                 implement-interface="me.caiyuan.spring.xmlconfig.encoreable.Encoreable"
+                                 delegate-ref="defaultEncoreable"/>
+        </aop:aspect>
+    </aop:config>
+
 </beans>

@@ -1,5 +1,6 @@
 package me.caiyuan.spring.xmlconfig;
 
+import me.caiyuan.spring.xmlconfig.encoreable.Encoreable;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -16,6 +17,13 @@ public class Main {
         performance.perform();
         System.out.println("----------------------");
         performance.perform(123);
+        System.out.println("----------------------");
+        Class<?>[] clz = performance.getClass().getInterfaces();
+        for (Class<?> c : clz) {
+            System.out.println(c);
+        }
+        Encoreable encoreable = (Encoreable) performance;
+        encoreable.performEncore();
     }
 
 }
