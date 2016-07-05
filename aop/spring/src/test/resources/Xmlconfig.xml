@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="performance" class="me.caiyuan.spring.xmlconfig.Performance"/>
+
+    <bean id="audience" class="me.caiyuan.spring.xmlconfig.Audience"/>
+
+    <aop:config>
+        <aop:aspect ref="audience">
+            <aop:pointcut id="perform" expression="execution(* me.caiyuan.spring.xmlconfig.Performance.perform())"/>
+            <aop:before method="silenceCellPhones" pointcut-ref="perform"/>
+            <aop:before method="takeSeats" pointcut-ref="perform"/>
+            <aop:after-returning method="applause" pointcut-ref="perform"/>
+            <aop:after-throwing method="demandRefund" pointcut-ref="perform"/>
+            <aop:around method="watchPerformance" pointcut-ref="perform"/>
+        </aop:aspect>
+    </aop:config>
+
+    <aop:config>
+        <aop:aspect ref="audience">
+            <aop:pointcut id="performParam"
+                          expression="execution(* me.caiyuan.spring.xmlconfig.Performance.perform(int)) and args(param)"/>
+            <aop:before method="takeSeatsParam" pointcut-ref="performParam"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
