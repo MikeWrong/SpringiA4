@@ -16,7 +16,7 @@ import org.springframework.test.context.support.DelegatingSmartContextLoader;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration(classes = ConcertJavaConfig.class, loader = AnnotationConfigContextLoader.class)
-@ContextConfiguration(locations = {"classpath:AspectConcert.xml"}, loader = DelegatingSmartContextLoader.class)
+@ContextConfiguration(locations = {"classpath:Aspect.xml"}, loader = DelegatingSmartContextLoader.class)
 public class PerformanceTest {
 
     @Autowired

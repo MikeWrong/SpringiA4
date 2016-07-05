@@ -12,6 +12,6 @@ import org.springframework.context.annotation.ImportResource;
  * 6/28/16.
  */
 @Configuration
-@ImportResource("classpath:BeanCreater.xml")
+@ImportResource("classpath:Autowired.xml")
 public class BeanCreaterXmlConfig {
 }

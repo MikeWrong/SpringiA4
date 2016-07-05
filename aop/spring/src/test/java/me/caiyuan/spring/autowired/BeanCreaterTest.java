@@ -41,7 +41,7 @@ public class BeanCreaterTest {
 class Main {
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("BeanCreater.xml");
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("Autowired.xml");
         applicationContext.start();
     }
 
