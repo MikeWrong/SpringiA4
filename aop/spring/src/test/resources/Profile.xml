@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <beans profile="dog">
+        <bean id="animal" class="me.caiyuan.spring.profile.animal.Dog"/>
+    </beans>
+
+    <beans profile="duck">
+        <bean id="animal" class="me.caiyuan.spring.profile.animal.Duck"/>
+    </beans>
+
+</beans>
