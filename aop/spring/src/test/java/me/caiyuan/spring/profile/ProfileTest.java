@@ -23,11 +23,6 @@ public class ProfileTest {
     @Autowired
     private Animal animal;
 
-    @Test
-    public void t() {
-        animal.speak();
-    }
-
     public static void main(String[] args) {
         // 激活 profile
         // 如果 spring.profiles.activate 没有设置,则使用默认设置 spring.profiles.default; 如果这两个都没有设置, 那么就没有激活 profile
@@ -36,6 +31,11 @@ public class ProfileTest {
 
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:Profile.xml");
         Animal animal = (Animal) context.getBean("animal");
+        animal.speak();
+    }
+
+    @Test
+    public void t() {
         animal.speak();
     }
 

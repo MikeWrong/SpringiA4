@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-          http://www.springframework.org/schema/beans/spring-beans.xsd">
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+    <bean id="singletonBean" class="me.caiyuan.spring.scope.BeanObject" scope="singleton"/>
+    <bean id="prototypeBean" class="me.caiyuan.spring.scope.BeanObject" scope="prototype"/>
 
+    <bean id="sessionBean" class="me.caiyuan.spring.scope.BeanObject" scope="session">
+        <aop:scoped-proxy proxy-target-class="false"/>
+    </bean>
+
+    <bean id="requestBean" class="me.caiyuan.spring.scope.BeanObject" scope="request">
+        <aop:scoped-proxy proxy-target-class="false"/>
+    </bean>
+
+    <bean id="applicationBean" class="me.caiyuan.spring.scope.BeanObject" scope="application">
+        <aop:scoped-proxy proxy-target-class="false"/>
+    </bean>
+
+    <bean id="globalSessionBean" class="me.caiyuan.spring.scope.BeanObject" scope="globalSession">
+        <aop:scoped-proxy proxy-target-class="false"/>
+    </bean>
 
 </beans>
