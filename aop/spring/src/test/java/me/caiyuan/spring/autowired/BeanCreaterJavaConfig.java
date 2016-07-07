@@ -16,7 +16,7 @@ import org.springframework.context.annotation.ImportResource;
  */
 @Configuration
 @Import(BeanCreater.class)
-@ImportResource("classpath:BeanCreater.xml")
+@ImportResource("classpath:Autowired.xml")
 //@ComponentScan
 public class BeanCreaterJavaConfig {
 }
