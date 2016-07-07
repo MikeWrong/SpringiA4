@@ -37,3 +37,8 @@ Spring 定义了多种作用域,可已基于这些作用域创建 bean,包括:
 - 会话(Session): 在Web应用中,为每个会话创建一个bean实例
 - 请求(Request): 在Web应用中,为每个请求创建一个bean实例
 
+```java
+    @Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.INTERFACES)
+    // @scope 同时还有一个 proxyMode 属性, 他被设置成 ScopedProxyMode.INTERFACES。这个属性解决了将会话或请求作用域的 bean 注入到单例 bean 中所遇到的问题。
+```
+![proxy](proxy.png)
