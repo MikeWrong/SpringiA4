@@ -1,5 +1,6 @@
-package me.caiyuan.spring.qualifier.animal;
+package me.caiyuan.spring.qualifier;
 
+import me.caiyuan.spring.qualifier.animal.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,6 +34,14 @@ public class Zoo {
     @Bean(name = "frog")
     public Animal frog() {
         return new Frog();
+    }
+
+    // @Aquatic 使用自定义注解 限定符
+
+    @Bean
+    @Aquatic
+    public Animal fish() {
+        return new Fish();
     }
 
 }

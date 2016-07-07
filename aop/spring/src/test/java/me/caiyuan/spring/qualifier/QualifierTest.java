@@ -29,11 +29,18 @@ public class QualifierTest {
     @Qualifier("duck")
     private Animal animal_2;
 
+    // @Aquatic 使用自定义注解 限定符
+
+    @Autowired
+    @Aquatic
+    private Animal animal_3;
+
     @Test
     public void t() {
         animalPrimary.speak();
         animal_1.speak();
         animal_2.speak();
+        animal_3.speak();
     }
 
 }
