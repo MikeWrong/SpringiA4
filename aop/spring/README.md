@@ -46,6 +46,7 @@ Spring 定义了多种作用域,可已基于这些作用域创建 bean,包括:
 ### Placeholder
 声明使用 PropertySourcesPlaceholderConfigurer ${...} 解析占位符
 
+- JavaConfig
 ```java
     @Bean
     public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
@@ -53,6 +54,7 @@ Spring 定义了多种作用域,可已基于这些作用域创建 bean,包括:
     }
 ```
 
+- XmlConfig
 ```xml
     <context:property-placeholder location="Externals1.properties" order="1"/>
     <context:property-placeholder location="Externals2.properties" order="2"/>
