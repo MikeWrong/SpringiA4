@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = SpELJavaConfig.class)
-public class SpELTest_ {
+public class SpELTest {
 
     @Autowired
     @Qualifier("blankDisc1")
