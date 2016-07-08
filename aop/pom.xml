@@ -9,6 +9,7 @@
     <modules>
         <module>aspectj</module>
         <module>spring</module>
+        <module>spel</module>
     </modules>
     <name>aop</name>
     <url>http://maven.apache.org</url>
