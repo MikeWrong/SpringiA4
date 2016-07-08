@@ -36,6 +36,10 @@ public class EnvironmentAndPlaceholderConfig {
     @PostConstruct
     public void init() {
         System.out.println(appName);
+        float number = env.getProperty("float", Float.class);
+        System.out.println(number);
+        Class<BlankDisc> clz = env.getPropertyAsClass("class", BlankDisc.class);
+        System.out.println(clz.getPackage());
     }
 
     @PreDestroy
