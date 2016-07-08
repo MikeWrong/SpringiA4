@@ -123,3 +123,27 @@ SpEL 表达式放置于 #{...} 拥有很多特性,包括:
     // 正则表达式; matches, 匹配成功则返回 true 否则返回 false
     #{admin.email matches '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.com'}
 ```
+
+```java
+    // 计算集合
+
+    // [] 选择运算符
+    #{jukebox.songs[4].title}
+    #{jukebox.songs[T(java.lang.Math).random() * jukebox.songs.size()].title}
+    // 从String对象中获取一个字符, 这个表达式引用了String中的第四个(基于零开始)字符,也就是"s"
+    #{'This is a test'[3]}
+
+    // .?[] , .^[] , .$[] 查询运算符
+    // 如果 jukebox.songs 的值不为 null , 则返回 jukebox.songs 集合中所有的对象的属性 artist 值为 'Aerosmith' 的对象。
+    #{jukebox.songs.?[artist eq 'Aerosmith']}
+    // 如果 jukebox.songs 的值不为 null , 则返回 jukebox.songs 集合中对象的属性 artist 值为 'Aerosmith' 的第一个对象。
+    #{jukebox.songs.^[artist eq 'Aerosmith']}
+    // 如果 jukebox.songs 的值不为 null , 则返回 jukebox.songs 集合中对象的属性 artist 值为 'Aerosmith' 的最后一个对象。
+    #{jukebox.songs.$[artist eq 'Aerosmith']}
+
+    // .![] 投影运算符
+    // 如果 jukebox.songs 的值不为 null , 则返回 jukebox.songs 集合中所有的对象的属性 title 值, 并赋值到一个只存储 title 属性的新的集合中。
+    #{jukebox.songs.![title]}
+    // 返回 jukebox.songs 集合对象中属性 artist 值为 'Aerosmith' 的对象, 并返回所有符合条件的对象的 title 属性。
+    #{jukebox.songs.?[artist eq 'Aerosmith'].![title]}
+```
