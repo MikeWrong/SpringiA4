@@ -1,5 +1,5 @@
 
-### @Profile
+### @Profile 配置切换
 - @Profile 注解基于 @Conditional 和 Condition 实现
 - Source Code
 ```java
@@ -30,7 +30,7 @@
     }
 ```
 
-### Scope
+### Scope bean作用域
 Spring 定义了多种作用域,可已基于这些作用域创建 bean,包括:
 - 单例(Singleton): 在整个应用中,只创建bean的一个实例
 - 原型(Prototype): 每次注入或者通过Spring应用上下文获取的时候,都会创建一个新的bean实例
@@ -43,8 +43,8 @@ Spring 定义了多种作用域,可已基于这些作用域创建 bean,包括:
 ```
 ![proxy](proxy.png)
 
-### Placeholder
-声明使用 PropertySourcesPlaceholderConfigurer ${...} 解析占位符
+### Placeholder 属性占位符
+声明使用 PropertySourcesPlaceholderConfigurer 解析属性占位符 ${...}
 
 - JavaConfig
 ```java
@@ -59,8 +59,9 @@ Spring 定义了多种作用域,可已基于这些作用域创建 bean,包括:
     <context:property-placeholder location="Externals1.properties" order="1"/>
     <context:property-placeholder location="Externals2.properties" order="2"/>
 ```
-### SpEL
-SpEL 拥有很多特性,包括:
+
+### SpEL spring表达式语言
+SpEL 表达式放置于 #{...} 拥有很多特性,包括:
 - 使用bean的id来引用bean;
 - 调用方法和访问对象的属性
 - 对值进行算术,关系和逻辑运算
