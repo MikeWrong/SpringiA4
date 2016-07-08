@@ -31,4 +31,10 @@ public class SpELJavaConfig {
         return new BlankDisc(title, artist);
     }
 
+    @Bean(name = "blankDisc3")
+    public BlankDisc blankDisc3(@Value("#{'Sgt. Peppers Lonely Hearts Club Band'}") String title,
+                                @Value("#{'The Beatles'}") String artist) {
+        return new BlankDisc(title, artist);
+    }
+
 }
