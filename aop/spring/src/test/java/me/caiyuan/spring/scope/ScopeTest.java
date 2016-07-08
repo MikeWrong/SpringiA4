@@ -19,12 +19,12 @@ public class ScopeTest {
     @Autowired
     private ApplicationContext applicationContext;
 
-    @Test
-    public void t() {
-    }
-
     public static void main(String[] args) {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:Scope.xml");
+    }
+
+    @Test
+    public void t() {
     }
 
 }

@@ -28,13 +28,6 @@ public class SpELTest {
     @Qualifier("blankDisc3")
     private BlankDisc blankDisc3;
 
-    @Test
-    public void t() {
-        System.out.println(blankDisc1);
-        System.out.println(blankDisc2);
-        System.out.println(blankDisc3);
-    }
-
     public static void main(String[] args) {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:SpEL.xml");
         BlankDisc blankDisc1 = (BlankDisc) applicationContext.getBean("blankDisc1");
@@ -46,6 +39,13 @@ public class SpELTest {
 
         Object properties = applicationContext.getBean("properties");
         System.out.println(properties);
+    }
+
+    @Test
+    public void t() {
+        System.out.println(blankDisc1);
+        System.out.println(blankDisc2);
+        System.out.println(blankDisc3);
     }
 
 }
