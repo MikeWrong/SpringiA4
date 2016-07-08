@@ -59,3 +59,10 @@ Spring 定义了多种作用域,可已基于这些作用域创建 bean,包括:
     <context:property-placeholder location="Externals1.properties" order="1"/>
     <context:property-placeholder location="Externals2.properties" order="2"/>
 ```
+### SpEL
+SpEL 拥有很多特性,包括:
+- 使用bean的id来引用bean;
+- 调用方法和访问对象的属性
+- 对值进行算术,关系和逻辑运算
+- 正则表达式匹配
+- 集合操作

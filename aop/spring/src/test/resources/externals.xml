@@ -9,7 +9,7 @@
     <context:property-placeholder location="Externals1.properties" order="1"/>
     <context:property-placeholder location="Externals2.properties" order="2"/>
 
-    <bean class="me.caiyuan.spring.externals.soundsystem.BlankDisc"
+    <bean class="me.caiyuan.spring.externals.placeholder.BlankDisc"
           c:_0="${disc.title}"
           c:_1="${disc.artist}"/>
 
