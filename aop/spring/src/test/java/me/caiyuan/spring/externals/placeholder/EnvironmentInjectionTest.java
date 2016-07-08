@@ -1,4 +1,4 @@
-package me.caiyuan.spring.externals.soundsystem;
+package me.caiyuan.spring.externals.placeholder;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

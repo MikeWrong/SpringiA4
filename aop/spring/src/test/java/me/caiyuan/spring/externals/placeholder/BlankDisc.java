@@ -1,4 +1,4 @@
-package me.caiyuan.spring.externals.soundsystem;
+package me.caiyuan.spring.externals.placeholder;
 
 
 public class BlankDisc {

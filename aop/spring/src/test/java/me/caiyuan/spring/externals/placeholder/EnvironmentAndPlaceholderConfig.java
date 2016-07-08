@@ -1,4 +1,4 @@
-package me.caiyuan.spring.externals.soundsystem;
+package me.caiyuan.spring.externals.placeholder;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
