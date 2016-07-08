@@ -15,15 +15,17 @@
 
     <util:properties id="properties" location="SpEL.properties"/>
 
-    <bean id="blankDisc1" class="me.caiyuan.spring.externals.spel.BlankDisc"
+    <bean id="blankDisc" class="me.caiyuan.spring.externals.spel.BlankDisc" abstract="true"/>
+
+    <bean id="blankDisc1" parent="blankDisc"
           c:_0="${disc.title}"
           c:_1="${disc.artist}"/>
 
-    <bean id="blankDisc2" class="me.caiyuan.spring.externals.spel.BlankDisc"
+    <bean id="blankDisc2" parent="blankDisc"
           c:_0="#{properties['disc.title']}"
           c:_1="#{properties['disc.artist']}"/>
 
-    <bean id="blankDisc3" class="me.caiyuan.spring.externals.spel.BlankDisc"
+    <bean id="blankDisc3" parent="blankDisc"
           c:_0="#{blankDisc1.title}"
           c:_1="#{blankDisc1.artist}"/>
 
