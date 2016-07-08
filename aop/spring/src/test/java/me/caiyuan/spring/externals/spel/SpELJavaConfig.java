@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 /**
  * YUAN
@@ -14,8 +15,19 @@ import org.springframework.context.annotation.PropertySource;
 public class SpELJavaConfig {
 
     @Bean
-    public BlankDisc blankDisc(@Value("#{'disc.title'}") String title,
-                               @Value("#{'disc.artist'}") String artist) {
+    public PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
+
+    @Bean(name = "blankDisc1")
+    public BlankDisc blankDisc1(@Value("${disc.title}") String title,
+                                @Value("${disc.artist}") String artist) {
+        return new BlankDisc(title, artist);
+    }
+
+    @Bean(name = "blankDisc2")
+    public BlankDisc blankDisc2(@Value("#{systemProperties['disc.title']}") String title,
+                                @Value("#{systemProperties['disc.artist']}") String artist) {
         return new BlankDisc(title, artist);
     }
 
