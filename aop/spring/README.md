@@ -63,7 +63,43 @@ Spring 定义了多种作用域,可已基于这些作用域创建 bean,包括:
 ### SpEL spring表达式语言
 SpEL 表达式放置于 #{...} 拥有很多特性,包括:
 - 使用bean的id来引用bean;
-- 调用方法和访问对象的属性
-- 对值进行算术,关系和逻辑运算
-- 正则表达式匹配
-- 集合操作
+- 调用方法和访问对象的属性;
+- 对值进行算术,关系和逻辑运算;
+- 正则表达式匹配;
+- 集合操作;
+```java
+    // T()表达式会将java.lang.System视为Java中对应的类型,因此可以调用其static修饰的currentTimeMillis()方法(或属性)
+    #{T(System).currentTimeMillis()}
+    // 通过systemProperties对象引用系统属性
+    #{systemProperties['disc.title']}
+    // 得到id为sgtPeppers的bean
+    #{sgtPeppers}
+    // 得到id为sgtPeppers的bean的artist属性
+    #{sgtPeppers.artist}
+    // 调用id为sgtPeppers的bean的getArtist()方法
+    // #{sgtPeppers.getArtist()}
+
+    // 表示字面值
+    #{3.14159}
+    #{9.87E4} //科学计数法
+    #{'Hello'}
+    #{false}
+
+    // (.? 运算符) 如果 artistSelector.selectArtist() 的返回值不为 null 则调用 toUpperCase() 方法, 否则直接返回 null 值
+    #{artistSelector.selectArtist()?.toUpperCase()}
+```
+```java
+    public BlankDisk(
+        @Value("#{systemProperties['disc.title']}") String title,
+        @Value("#{systemProperties['disc.artist']}") String artist) {
+        this.title = title;
+        this.artist = artist;
+    }
+```
+```xml
+    <bean id="sgtPeppers" class="myPackage.BlankDisk"
+            c:_title="#{systemProperties['disc.title']}"
+            c:_artist="#{#{systemProperties['disc.artist']}"/>
+```
+
+![SpEL](spel.png)
