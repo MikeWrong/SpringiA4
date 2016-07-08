@@ -48,9 +48,13 @@ Spring 定义了多种作用域,可已基于这些作用域创建 bean,包括:
 
 - JavaConfig
 ```java
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
+    @Configuration
+    @PropertySource({"classpath:Externals1.properties", "classpath:Externals2.properties"})
+    public class EnvironmentAndPlaceholderConfig {
+        @Bean
+        public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
+            return new PropertySourcesPlaceholderConfigurer();
+        }
     }
 ```
 
