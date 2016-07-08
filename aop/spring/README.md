@@ -107,3 +107,19 @@ SpEL 表达式放置于 #{...} 拥有很多特性,包括:
 ```
 
 ![SpEL](spel.png)
+
+```java
+    // 算术运算符
+    #{2 * T(java.lang.Math).PI * circle.radius}
+    // 字符连接符
+    #{disc.title + ' by ' + disc.artist}
+    // 比较运算符
+    #{counter.total == 100}
+    #{counter.total eq 100}
+    // 三元运算符
+    #{scoreboard.score > 1000 ? "Winner!" : "Loser"}
+    // 条件运算符; 如果 disc.title 的值为 null 则返回 'Rattle and Hum', 否则返回 disc.title 的值
+    #{disc.title ?: 'Rattle and Hum'}
+    // 正则表达式; matches, 匹配成功则返回 true 否则返回 false
+    #{admin.email matches '[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.com'}
+```
