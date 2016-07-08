@@ -42,3 +42,18 @@ Spring 定义了多种作用域,可已基于这些作用域创建 bean,包括:
     // @scope 同时还有一个 proxyMode 属性, 他被设置成 ScopedProxyMode.INTERFACES。这个属性解决了将会话或请求作用域的 bean 注入到单例 bean 中所遇到的问题。
 ```
 ![proxy](proxy.png)
+
+### Placeholder
+声明使用 PropertySourcesPlaceholderConfigurer ${...} 解析占位符
+
+```java
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
+```
+
+```xml
+    <context:property-placeholder location="Externals1.properties" order="1"/>
+    <context:property-placeholder location="Externals2.properties" order="2"/>
+```

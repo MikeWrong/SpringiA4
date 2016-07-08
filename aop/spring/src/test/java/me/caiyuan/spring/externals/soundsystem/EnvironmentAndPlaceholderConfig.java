@@ -12,7 +12,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Configuration
-@PropertySource("classpath:Externals.properties")
+@PropertySource({"classpath:Externals1.properties", "classpath:Externals2.properties"})
 public class EnvironmentAndPlaceholderConfig {
 
     @Autowired
@@ -21,6 +21,7 @@ public class EnvironmentAndPlaceholderConfig {
     @Value("${app.name}")
     String appName;
 
+    // 声明使用 PropertySourcesPlaceholderConfigurer ${...} 解析占位符
     @Bean
     public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
