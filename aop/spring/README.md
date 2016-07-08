@@ -77,7 +77,7 @@ SpEL 表达式放置于 #{...} 拥有很多特性,包括:
     // 得到id为sgtPeppers的bean的artist属性
     #{sgtPeppers.artist}
     // 调用id为sgtPeppers的bean的getArtist()方法
-    // #{sgtPeppers.getArtist()}
+    #{sgtPeppers.getArtist()}
 
     // 表示字面值
     #{3.14159}
