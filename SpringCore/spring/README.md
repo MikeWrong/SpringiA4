@@ -39,7 +39,7 @@
     <context:component-scan base-package="me.caiyuan.spring.base.pkg1, me.caiyuan.spring.base.pkg2"/>
 ```
 
-### @Profile 配置切换
+### Profile 配置切换
 - @Profile 注解基于 @Conditional 和 Condition 实现
 - Source Code
 ```java
