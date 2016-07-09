@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.env.Environment;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -37,6 +38,12 @@ public class SpELTest {
     @Value("#{systemEnvironment}")
     private Map<String, String> systemEnvironment;
 
+    @Value("#{environment}")
+    private Environment env;
+
+    @Value("#{environment.getProperty('disc.title')}")
+    private String discTitle;
+
     public static void main(String[] args) {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:SpEL.xml");
         BlankDisc blankDisc1 = (BlankDisc) applicationContext.getBean("blankDisc1");
@@ -63,6 +70,8 @@ public class SpELTest {
         for (Map.Entry<String, String> entry : systemEnvironment.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
+        System.out.println(env.getProperty("disc.title"));
+        System.out.println(discTitle);
     }
 
 }
