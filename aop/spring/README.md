@@ -147,3 +147,58 @@ SpEL 表达式放置于 #{...} 拥有很多特性,包括:
     // 返回 jukebox.songs 集合对象中属性 artist 值为 'Aerosmith' 的对象, 并返回所有符合条件的对象的 title 属性。
     #{jukebox.songs.?[artist eq 'Aerosmith'].![title]}
 ```
+
+### Lifecycle bean生命周期
+Bean装载到Spring应用上下文中的一个典型的生命周期过程
+
+![Bean Lifecycle](bean lifecycle.png)
+
+1. Spring 对 bean 进行实例化;
+2. Spring 将值和 bean 的应用注入到 bean 对应的属性中;
+3. 如果 bean 实现了 BeanNameAware 接口, Spring 将 bean 的 ID 传递给 setBeanName() 方法;
+4. 如果 bean 实现了 BeanFactoryAware 接口, Spring 将调用 setBeanFactory() 方法, 将 BeanFactory 容器实例传入;
+5. 如果 bean 实现了 ApplicationContextAware 接口, Spring 将调用它们的 setApplicationContext() 方法, 将 bean 所在应用上下文的引用传入进来;
+6. 如果 bean 实现了 BeanPostProcessor 接口, Spring 将调用它们的 postProcessBeforeInitialization() 方法;
+7. 如果 bean 实现了 InitializingBean 接口, Spring 将调用它们的 afterPropertiesSet() 方法。类似的, 如果 bean 使用 init-method 声明了初始化方法, 该方法也会被调用;
+8. 如果 bean 实现了 BeanPostProcessor 接口, Spring 将调用它们的 postProcessAfterInitialization() 方法;
+9. 此时, bean 已经准备就绪, 可以被应用程序使用了, 它们将一直驻留在应用上下文中, 知道该应用上下文被销毁;
+10. 如果 bean 实现了 DisposableBean 接口, Spring 将调用它的 destroy() 接口方法。同样, 如果 bean 使用 destroy-method 声明了销毁方法, 该方法也会被调用;
+
+```java
+    // constructor -> init -> process -> destroy
+
+    @Component
+    public class BeanObject {
+
+        public BeanObject() {
+            System.out.println("constructor");
+        }
+
+        public void process() {
+            System.out.println("process");
+        }
+
+        @PostConstruct
+        public void init() {
+            System.out.println("init");
+        }
+
+        @PreDestroy
+        public void destroy() {
+            System.out.println("destroy");
+        }
+
+    }
+```
+
+### SpringContext spring上下文
+Spring 自带了多种类型的应用上下文
+- AnnotationConfigApplicationContext: 从一个或多个基于Java的配置类中加载Spring应用上下文。
+- AnnotationConfigWebApplicationContext: 从一个或多个基于Java的配置类中加载Spring Web应用上下文。
+- ClassPathXmlApplicationContext: 从类路径下的一个或多个XML配置文件中加载上下文,把应用上下文的定义文件作为类资源。
+- FileSystemXmlApplicationContext: 从文件系统下的一个或多个XML配置文件中加载上下文定义。
+- XmlWebApplicationContext:  从Web应用下的一个或多个XML配置文件加载上下文定义。
+
+### Springframework
+
+![Springframework](springframework.png)
