@@ -70,6 +70,7 @@ public class SpELTest {
         for (Map.Entry<String, String> entry : systemEnvironment.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
+        System.out.println(env);
         System.out.println(env.getProperty("disc.title"));
         System.out.println(discTitle);
     }
