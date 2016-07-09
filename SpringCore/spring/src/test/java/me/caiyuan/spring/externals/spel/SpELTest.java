@@ -4,9 +4,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.Map;
 
 /**
  * YUAN
@@ -28,6 +31,12 @@ public class SpELTest {
     @Qualifier("blankDisc3")
     private BlankDisc blankDisc3;
 
+    @Value("#{systemProperties}")
+    private Map<String, String> systemProperties;
+
+    @Value("#{systemEnvironment}")
+    private Map<String, String> systemEnvironment;
+
     public static void main(String[] args) {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:SpEL.xml");
         BlankDisc blankDisc1 = (BlankDisc) applicationContext.getBean("blankDisc1");
@@ -46,6 +55,14 @@ public class SpELTest {
         System.out.println(blankDisc1);
         System.out.println(blankDisc2);
         System.out.println(blankDisc3);
+        System.out.println("----------------------");
+        for (Map.Entry<String, String> entry : systemProperties.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+        System.out.println("----------------------");
+        for (Map.Entry<String, String> entry : systemEnvironment.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
     }
 
 }
