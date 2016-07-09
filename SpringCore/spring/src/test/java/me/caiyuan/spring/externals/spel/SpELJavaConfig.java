@@ -1,10 +1,16 @@
 package me.caiyuan.spring.externals.spel;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.PropertiesFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+
+import java.io.IOException;
+import java.util.Properties;
 
 /**
  * YUAN
@@ -35,6 +41,20 @@ public class SpELJavaConfig {
     public BlankDisc blankDisc3(@Value("#{'Sgt. Peppers Lonely Hearts Club Band'}") String title,
                                 @Value("#{'The Beatles'}") String artist) {
         return new BlankDisc(title, artist);
+    }
+
+    @Bean
+    public Properties properties(@Value("#{'SpEL.properties'}") String location) {
+        PropertiesFactoryBean properties = new PropertiesFactoryBean();
+        Resource resource = new ClassPathResource(location);
+        properties.setLocation(resource);
+        properties.setSingleton(false);
+        try {
+            return properties.getObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new Properties();
+        }
     }
 
 }

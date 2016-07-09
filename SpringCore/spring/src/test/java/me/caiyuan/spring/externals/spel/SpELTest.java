@@ -11,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * YUAN
@@ -44,6 +45,9 @@ public class SpELTest {
     @Value("#{environment.getProperty('disc.title')}")
     private String discTitle;
 
+    @Autowired
+    private Properties properties;
+
     public static void main(String[] args) {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:SpEL.xml");
         BlankDisc blankDisc1 = (BlankDisc) applicationContext.getBean("blankDisc1");
@@ -70,9 +74,12 @@ public class SpELTest {
         for (Map.Entry<String, String> entry : systemEnvironment.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
+        System.out.println("----------------------");
         System.out.println(env);
         System.out.println(env.getProperty("disc.title"));
         System.out.println(discTitle);
+        System.out.println("----------------------");
+        System.out.println(properties);
     }
 
 }
