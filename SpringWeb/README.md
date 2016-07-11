@@ -117,5 +117,4 @@ spring-web
 </body>
 </html>
 ```
-<!-- /WEB-INF/views/home.jsp -->
 
