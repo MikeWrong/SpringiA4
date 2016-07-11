@@ -10,11 +10,14 @@ Spring Web
 前端控制器是常用的 Web 应用程序模式, 在这里单例的 Servlet 将请求委托给应用程序的其他组件来执行实际的处理。
 在 SpringMVC 中 DispatcherServlet 就是前端控制器。
 
-3. HandlerMapping :
+3. HandlerMapping : DispatcherServlet 查询一个或多个处理器映射 HandlerMapping 来确定请求的一个站在哪里,
+处理器映射会根据请求所携带的URL信息来进行决策。
 
-4. Controller :
+4. Controller : 一旦选择了合适的 Controller, DispatcherServlet 会将请求发送给选中的控制器, 到了控制器, 请求会卸下其负载(用户提交的信息)
+并耐心等待控制器处理这些信息。
 
-5. Model & Logical view name :
+5. Model & Logical view name : Controller 完成逻辑处理后, 通常会产生一些信息, 这些信息需要返回给用户并在浏览器上显示。这些信息被称为模型(Model)。
+不过仅仅给用户返回原始的信息是不够的--这些信息需要以用户友好的方式进行格式化,一般会是HTML。所以,信息需要发送给一个视图(View),通常会是JSP。
 
 6. ViewResolver :
 
