@@ -26,3 +26,96 @@ Spring Web
 8. View : DispatcherServlet 已经知道由哪一个视图渲染结果, 那请求的任务基本上也就完成了; 它的最后一站就是视图的实现, 在这里它交付模型数据, 请求的任务就完成了。
 
 9. Response : 视图将使用模型数据输出, 这个输出会通过响应对象传递给客户端。
+
+### Bootstrap
+
+```java
+package me.caiyuan.spring.web.config;
+
+public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class<?>[]{RootConfig.class};
+    }
+
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class<?>[]{WebConfig.class};
+    }
+
+    protected String[] getServletMappings() {
+        return new String[]{"/"};
+    }
+}
+```
+```java
+package me.caiyuan.spring.web.config;
+
+@Configuration
+@ComponentScan(
+        basePackageClasses = RootPackage.class,
+        excludeFilters = {@Filter(type = ANNOTATION, value = EnableWebMvc.class)})
+public class RootConfig {
+}
+```
+```java
+package me.caiyuan.spring.web.config;
+
+@Configuration
+@EnableWebMvc
+@ComponentScan(basePackageClasses = WebPackage.class)
+public class WebConfig extends WebMvcConfigurerAdapter {
+
+    @Bean
+    public ViewResolver viewResolver() {
+        InternalResourceViewResolver resolver =
+                new InternalResourceViewResolver();
+        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setSuffix(".jsp");
+        resolver.setExposeContextBeansAsAttributes(true);
+        return resolver;
+    }
+
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
+}
+```
+```java
+package me.caiyuan.spring.web.controller;
+
+public interface WebPackage {
+}
+```
+```java
+package me.caiyuan.spring.web;
+
+public interface RootPackage {
+}
+```
+```java
+package me.caiyuan.spring.web.controller;
+
+@Controller
+public class HomeController {
+
+    @RequestMapping(value = "/", method = GET)
+    public String home() {
+        return "home";
+    }
+}
+```
+```jsp
+<!-- /WEB-INF/views/home.jsp -->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+spring-web
+</body>
+</html>
+```
+<!-- /WEB-INF/views/home.jsp -->
+
