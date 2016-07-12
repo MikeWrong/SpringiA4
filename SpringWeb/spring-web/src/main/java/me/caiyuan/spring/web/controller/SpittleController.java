@@ -1,10 +1,14 @@
 package me.caiyuan.spring.web.controller;
 
+import me.caiyuan.spring.web.repository.Spittle;
 import me.caiyuan.spring.web.repository.SpittleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -42,5 +46,11 @@ public class SpittleController {
         return spittleRepository.findSpittles(Long.MAX_VALUE, 20);
     }
     */
+
+    @RequestMapping(method = GET)
+    public List<Spittle> spittles(@RequestParam("max") long max,
+                                  @RequestParam("count") int count) {
+        return spittleRepository.findSpittles(max, count);
+    }
 
 }

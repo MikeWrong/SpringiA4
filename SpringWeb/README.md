@@ -174,3 +174,9 @@ public class SpittleController {
     */
 }
 ```
+
+### 接收请求参数的输入
+SpringMVC 允许以多种方式将客户端数据传送到控制器的处理器方法中, 包括
+- 表单参数(Query Parmeter)
+- 表单参数(Form Parmeter)
+- 路径变量(Path Parmeter)
