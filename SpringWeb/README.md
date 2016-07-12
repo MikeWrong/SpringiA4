@@ -118,3 +118,16 @@ spring-web
 </html>
 ```
 
+- AbstractAnnotationConfigDispatcherServletInitializer 剖析
+  在Servlet3.0环境中,容器会在类路径中查找实现javax.servlet.ServletContainerInitializer接口的类,如果发现的话,就会用来配置Servlet容器;
+  Spring提供了这个接口的实现 SpringServletContainerInitializer,这个实现类反过来会查找实现WebApplicationInitializer的类并将配置的任务交给它们来完成;
+  Spring3.2引入了一个便利的WebApplicationInitializer基础实现AbstractAnnotationConfigDispatcherServletInitializer。
+
+- 在SpringWeb应用中,通常会创建两个应用上下文;
+  1). DispatcherServlet 加载包含Web组件的Bean,如控制器、视图解析器以及处理器映射;
+  2). ContextLoaderListener 加载应用中的其它Bean,这些Bean通常是驱动应用后端的中间层和数据层组件。
+  实际上AbstractAnnotationConfigDispatcherServletInitializer会同时创建DispatcherServlet和ContextLoaderListener;
+  1). getRootConfigClasses()方法返回带有@Configuration注解的类将会用来配置ContextLoaderListener创建的应用上下文中的Bean;
+  2). getServletConfigClasses()方法返回带有@Configuration注解的类将会用来定义DispatcherServlet创建的应用上下文中的Bean。
+
+-
