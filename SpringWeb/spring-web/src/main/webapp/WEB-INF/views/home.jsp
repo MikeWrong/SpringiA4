@@ -6,13 +6,15 @@
 <body>
 spring-web
 
+<br/>
 <a href="spittles">spittles</a>
-
+<br/>
 <a href="spittles/query?max=120&count=5">查询参数(Query Parmeter)</a>
-
+<br/>
 <a href="spittles/path/120/5">路径变量(Path Parmeter)</a>
-
+<br/>
 <a href="spittles/register">表单参数(Form Parmeter)</a>
+<br/>
 
 </body>
 </html>
