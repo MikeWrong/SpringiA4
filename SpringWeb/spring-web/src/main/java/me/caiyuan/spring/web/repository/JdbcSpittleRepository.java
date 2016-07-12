@@ -18,7 +18,7 @@ public class JdbcSpittleRepository implements SpittleRepository {
 
     public List<Spittle> findSpittles(long max, int count) {
         ArrayList<Spittle> list = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < count; i++) {
             Spittle spittle = new Spittle("message_" + i, new Date(), random.nextDouble(), random.nextDouble());
             list.add(spittle);
         }
