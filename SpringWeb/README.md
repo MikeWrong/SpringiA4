@@ -134,3 +134,5 @@ spring-web
 
 - 如果没有配置视图解析器,Spring默认会使用BeanNameViewResolver,这个视图解析器会查找ID与视图名称匹配的Bean,并且查找的Bean要实现View接口,它以这样的方式解析视图。
 
+- WebConfig类扩展了WebMvcConfigraerAdapter并重写了其configureDefaultServletHandling()方法,通过调用DefaultServletHandlerConfigurer的enable()方法,
+  我们要求DispatcherServlet将静态资源的请求转发到Servlet容器中默认的Servlet上,而不是使用DispatcherServlet本身来处理此类请求。
