@@ -6,7 +6,7 @@
 <body>
 spring-web
 
-<a href="spittles.jsp">spittles</a>
+<a href="spittles">spittles</a>
 
 <a href="spittles/query?max=120&count=5">查询参数(Query Parmeter)</a>
 
