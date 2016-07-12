@@ -12,8 +12,10 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @Controller
 public class HomeController {
 
+    // 将控制器映射到 "/", 并限定为只接受GET类型的请求
     @RequestMapping(value = "/", method = GET)
     public String home() {
+        // 返回视图名称 "home"
         return "home";
     }
 
