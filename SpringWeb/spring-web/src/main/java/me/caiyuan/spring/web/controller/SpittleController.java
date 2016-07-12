@@ -65,4 +65,9 @@ public class SpittleController {
         return "spittles";
     }
 
+    @RequestMapping(value = "register", method = GET)
+    public String showRegisterForm() {
+        return "registerForm";
+    }
+
 }

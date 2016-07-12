@@ -180,3 +180,26 @@ SpringMVC 允许以多种方式将客户端数据传送到控制器的处理器�
 - 表单参数(Query Parmeter)
 - 表单参数(Form Parmeter)
 - 路径变量(Path Parmeter)
+```java
+    // 处理查询参数 (/spittles/query?max=120&count=5)
+    @RequestMapping(value = "query", method = GET)
+    public String query(@RequestParam("max") long max,
+                        @RequestParam(value = "count", defaultValue = "5") int count,
+                        Model model) {
+        model.addAttribute(spittleRepository.findSpittles(max, count));
+        return "spittles";
+    }
+
+    // 处理路径变量 (/spittles/path/120/5)
+    // 为了实现路径变量,SpringMVC允许我们在@RequestMapping路径中添加占位符,占位符要用大括号("{"和"}")括起来;
+    // 路径中的其他部分要与所处理的请求完全匹配,但是占位符部分可以是任意值
+    @RequestMapping(value = "path/{max}/{count}", method = GET)
+    public String path(@PathVariable("max") long max,
+                       @PathVariable int count,
+                       Model model) {
+        model.addAttribute(spittleRepository.findSpittles(max, count));
+        return "spittles";
+    }
+```
+```java
+```
