@@ -136,3 +136,41 @@ spring-web
 
 - WebConfig类扩展了WebMvcConfigraerAdapter并重写了其configureDefaultServletHandling()方法,通过调用DefaultServletHandlerConfigurer的enable()方法,
   我们要求DispatcherServlet将静态资源的请求转发到Servlet容器中默认的Servlet上,而不是使用DispatcherServlet本身来处理此类请求。
+
+### 传递模型数据到视图中
+
+```java
+package me.caiyuan.spring.web.controller;
+
+@Controller
+@RequestMapping("/spittles")
+public class SpittleController {
+
+    private SpittleRepository spittleRepository;
+
+    @Autowired
+    public SpittleController(SpittleRepository spittleRepository) {
+        this.spittleRepository = spittleRepository;
+    }
+
+    // 在方法签名中给定了一个Model作为参数,这样就能将Repository中获取的数据填充到模型中;
+    // Model 实际上是一个Map,它会传递给视图,这样数据就能渲染到客户端了。
+    @RequestMapping(method = GET)
+    public String spittles(Model model) {
+        // 当 addAttribute() 方法不指定key的时候,那么key会根据值的对象类型推断确定; 或显示指定key值。
+        // 在本例中因为它是一个List<Spittle>,因此,键将会推断为spittleList
+        model.addAttribute(spittleRepository.findSpittles(Long.MAX_VALUE, 20));
+        return "spittles";
+    }
+
+    /* 此方法可以替换上面的 spittles() 方法
+
+    // 该方法并没有显示指定返回的视图名称,而视图名称将会根据请求路径推断得出。
+    // 因为这个方法处理针对"/spittles"的GET请求,因此视图的名称将会是spittles(去掉开头的斜线)
+    @RequestMapping(method = GET)
+    public List<Spittle> spittles(Model model) {
+        return spittleRepository.findSpittles(Long.MAX_VALUE, 20);
+    }
+    */
+}
+```
