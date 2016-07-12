@@ -202,4 +202,23 @@ SpringMVC 允许以多种方式将客户端数据传送到控制器的处理器�
     }
 ```
 ```java
+    private List<Spittle> spittleList = new ArrayList<>();
+
+    @RequestMapping(value = "register", method = GET)
+    public String showRegisterForm() {
+        return "registerForm";
+    }
+
+    // 表单参数; SpringMVC使用 Spittle 的无参构造器创建 Spittle 对象, 并调用 Setter 方法设置对象参数。
+    @RequestMapping(value = "register", method = POST)
+    public String register(Spittle spittle) {
+        spittleList.add(spittle);
+        return "redirect:/spittles/showRegisterData";
+    }
+
+    @RequestMapping(value = "showRegisterData", method = GET)
+    public String showRegisterData(Model model) {
+        model.addAttribute(spittleList);
+        return "spittles";
+    }
 ```

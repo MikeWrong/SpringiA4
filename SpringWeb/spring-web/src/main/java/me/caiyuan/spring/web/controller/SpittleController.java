@@ -24,7 +24,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 public class SpittleController {
 
     private SpittleRepository spittleRepository;
-    private List<Spittle> spittleList = new ArrayList<>();
 
     @Autowired
     public SpittleController(SpittleRepository spittleRepository) {
@@ -70,6 +69,8 @@ public class SpittleController {
         model.addAttribute(spittleRepository.findSpittles(max, count));
         return "spittles";
     }
+
+    private List<Spittle> spittleList = new ArrayList<>();
 
     @RequestMapping(value = "register", method = GET)
     public String showRegisterForm() {
