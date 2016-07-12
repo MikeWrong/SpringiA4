@@ -8,10 +8,11 @@
 <h1>Register</h1>
 
 <form method="post">
-    First Name: <input type="text" name="fastName"><br/>
-    Last Name: <input type="text" name="lastName"><br/>
-    Username: <input type="text" name="username"><br/>
-    Password: <input type="password" name="password"><br/>
+    id: <input type="text" name="id"/><br/>
+    message: <input type="text" name="message"/><br/>
+    time: <input type="text" name="time"/><br/>
+    latitude: <input type="text" name="latitude"/><br/>
+    longitude: <input type="text" name="longitude"/><br/>
     <input type="submit" value="Register">
 </form>
 

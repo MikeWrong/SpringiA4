@@ -1,5 +1,6 @@
 package me.caiyuan.spring.web.controller;
 
+import me.caiyuan.spring.web.repository.Spittle;
 import me.caiyuan.spring.web.repository.SpittleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,7 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 /**
  * YUAN
@@ -19,20 +24,11 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 public class SpittleController {
 
     private SpittleRepository spittleRepository;
+    private List<Spittle> spittleList = new ArrayList<>();
 
     @Autowired
     public SpittleController(SpittleRepository spittleRepository) {
         this.spittleRepository = spittleRepository;
-    }
-
-    // 在方法签名中给定了一个Model作为参数,这样就能将Repository中获取的数据填充到模型中;
-    // Model 实际上是一个Map,它会传递给视图,这样数据就能渲染到客户端了。
-    @RequestMapping(method = GET)
-    public String spittles(Model model) {
-        // 当 addAttribute() 方法不指定key的时候,那么key会根据值的对象类型推断确定; 或显示指定key值。
-        // 在本例中因为它是一个List<Spittle>,因此,键将会推断为spittleList
-        model.addAttribute(spittleRepository.findSpittles(Long.MAX_VALUE, 20));
-        return "spittles";
     }
 
     /* 此方法可以替换上面的 spittles() 方法
@@ -44,6 +40,16 @@ public class SpittleController {
         return spittleRepository.findSpittles(Long.MAX_VALUE, 20);
     }
     */
+
+    // 在方法签名中给定了一个Model作为参数,这样就能将Repository中获取的数据填充到模型中;
+    // Model 实际上是一个Map,它会传递给视图,这样数据就能渲染到客户端了。
+    @RequestMapping(method = GET)
+    public String spittles(Model model) {
+        // 当 addAttribute() 方法不指定key的时候,那么key会根据值的对象类型推断确定; 或显示指定key值。
+        // 在本例中因为它是一个List<Spittle>,因此,键将会推断为spittleList
+        model.addAttribute(spittleRepository.findSpittles(Long.MAX_VALUE, 20));
+        return "spittles";
+    }
 
     // 处理查询参数 (/spittles/query?max=120&count=5)
     @RequestMapping(value = "query", method = GET)
@@ -68,6 +74,18 @@ public class SpittleController {
     @RequestMapping(value = "register", method = GET)
     public String showRegisterForm() {
         return "registerForm";
+    }
+
+    @RequestMapping(value = "register", method = POST)
+    public String register(Spittle spittle) {
+        spittleList.add(spittle);
+        return "redirect:/spittles/showRegisterData";
+    }
+
+    @RequestMapping(value = "showRegisterData", method = GET)
+    public String showRegisterData(Model model) {
+        model.addAttribute(spittleList);
+        return "spittles";
     }
 
 }
