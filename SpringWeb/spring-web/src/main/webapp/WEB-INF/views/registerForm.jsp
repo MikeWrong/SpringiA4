@@ -5,5 +5,14 @@
 </head>
 <body>
 
+<h1>Register</h1>
+
+<form method="post">
+    First Name:
+    Last Name:
+    Username:
+
+</form>
+
 </body>
 </html>
