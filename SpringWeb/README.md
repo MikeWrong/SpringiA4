@@ -65,6 +65,7 @@ package me.caiyuan.spring.web.config;
 @ComponentScan(basePackageClasses = WebPackage.class)
 public class WebConfig extends WebMvcConfigurerAdapter {
 
+    // 配置JSP视图解析器
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver resolver =
@@ -75,6 +76,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return resolver;
     }
 
+    // 配置静态资源的处理
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
@@ -130,4 +132,5 @@ spring-web
   1). getRootConfigClasses()方法返回带有@Configuration注解的类将会用来配置ContextLoaderListener创建的应用上下文中的Bean;
   2). getServletConfigClasses()方法返回带有@Configuration注解的类将会用来定义DispatcherServlet创建的应用上下文中的Bean。
 
--
+- 如果没有配置视图解析器,Spring默认会使用BeanNameViewResolver,这个视图解析器会查找ID与视图名称匹配的Bean,并且查找的Bean要实现View接口,它以这样的方式解析视图。
+
