@@ -44,6 +44,7 @@ public class SpittleController {
     }
     */
 
+    // spittles/query?max=120&count=5
     @RequestMapping(value = "query", method = GET)
     public String spittles(@RequestParam("max") long max,
                            @RequestParam("count") int count,
