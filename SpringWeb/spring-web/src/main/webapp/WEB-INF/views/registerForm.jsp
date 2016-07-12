@@ -8,10 +8,11 @@
 <h1>Register</h1>
 
 <form method="post">
-    First Name:
-    Last Name:
-    Username:
-
+    First Name: <input type="text" name="fastName"><br/>
+    Last Name: <input type="text" name="lastName"><br/>
+    Username: <input type="text" name="username"><br/>
+    Password: <input type="password" name="password"><br/>
+    <input type="submit" value="Register">
 </form>
 
 </body>
