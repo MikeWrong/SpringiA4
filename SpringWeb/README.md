@@ -208,3 +208,6 @@ SpringMVC 允许以多种方式将客户端数据传送到控制器的处理器�
         return "redirect:/spittles/showRegisterData";
     }
 ```
+> InternalResourceViewResolver中提供了不仅返回视图的名称供视图解析器查找目标视图,而且返回的只还带有定向格式"redirect:"和"forward";
+> 1. "redirect:" 重定向(客户端跳转), InternalResourceViewResolver看到视图格式中的 "redirect:" 前缀时,就知道要将其解析为定向的规则,而不是视图的名称。
+> 2. "forward:" 请求转发(服务器端跳转), InternalResourceViewResolver当发现视图格式中以 "forward:" 作为前缀时, 请求将前往 forward 制定的URL路径。
