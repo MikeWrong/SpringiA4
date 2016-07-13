@@ -79,6 +79,8 @@ public class SpittleController {
         return "registerForm";
     }
 
+    // 方法签名中的 @Valid 告知 Spring 需要确保这个对象满足校验限制; @Valid 注解的就是要校验的参数。
+    // Errors 对象用于访问校验时出现的错误,必须紧跟在 @Valid 注解的参数后面。
     @RequestMapping(value = "register", method = POST)
     public String register(@Valid Spittle spittle, Errors errors) {
         if (errors.hasErrors()) {
