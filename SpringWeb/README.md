@@ -256,4 +256,28 @@ SpringMVC 允许以多种方式将客户端数据传送到控制器的处理器�
         spittleList.add(spittle);
         return "redirect:/spittles/showRegisterData";
     }
+
+    public class Spittle {
+        @NotNull
+        @Max(Long.MAX_VALUE)
+        @Min(0)
+        private Long id;
+
+        @NotNull(message = "消息不能为空")
+        @Size(min = 5, max = 16, message = "消息长度不符合要求(最小长度5,最大长度16)")
+        private String message;
+
+        @NotNull
+        private Date time;
+
+        @NotNull
+        @Min(0)
+        private Double latitude;
+
+        @NotNull
+        @Min(0)
+        private Double longitude;
+
+        ... ...
+    }
 ```
