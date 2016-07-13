@@ -217,16 +217,16 @@ Spring3.0开始提供了对Java校验API(Java Validation API,又称 JSR-303)的�
 
  注解        | 描述
 -------------|------
-@AssertFalse | foo
-@AssertTrue  | bar
-@DecimalMax  | baz
-@DecimalMin  |
-@Digits      |
-@Future      |
-@Past        |
-@Max         |
-@Min         |
-@NotNull     |
-@Null        |
-@Pattern     |
-@Size        |
+@AssertFalse | 所注解的元素必须是 Boolean 类型,并且值为 false
+@AssertTrue  | 所注解的元素必须是 Boolean 类型,并且值为 true
+@DecimalMax  | 所注解的元素必须是数字，并且它的值要小于或等于给定的 BigDecimalString 值
+@DecimalMin  | 所注解的元素必须是数字，并且它的值要大于或等于给定的 BigDecimalString 值
+@Digits      | 所注解的元素必须是数字，并且它的值必须有指定的位数
+@Future      | 所注解的元素的值必须 是一个将来的日期
+@Past        | 所注解的元素的值必须 是一个已过去的日期
+@Max         | 所注解的元素必须是数字，并且它的值要小于或等于给定的值
+@Min         | 所注解的元素必须是数字，并且它的值要大于或等于给定的值
+@NotNull     | 所注解元素的值必须不能为 null
+@Null        | 所注解元素的值必须为 null
+@Pattern     | 所注解的元素的值必须匹配给定的正则表达式
+@Size        | 所注解的元素的值必须是 String、集合或数组，并且它的长度要符合给定的范围
