@@ -6,6 +6,7 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
@@ -19,7 +20,8 @@ public class Spittle {
     @Min(0)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "消息不能为空")
+    @Size(min = 5, max = 16, message = "消息长度不符合要求(最小长度5,最大长度16)")
     private String message;
 
     @NotNull
