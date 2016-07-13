@@ -16,6 +16,7 @@
 <body>
 
 <sf:form method="POST" commandName="spitter" action="register">
+    <sf:errors path="*" element="div" cssClass="error"/>
     First Name:
     <sf:label path="firstName" cssErrorClass="error">
         <sf:input path="firstName"/>
