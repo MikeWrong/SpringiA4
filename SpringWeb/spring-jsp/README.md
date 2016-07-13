@@ -39,6 +39,9 @@ Spring提供了两种支持JSP视图的方式:
 > - Spring提供了两个JSP标签库,一个用于表单到模型的绑定,另一个提供了通用的工具类特性。
 
 1). 配置适用于JSP的视图解析器
+```text
+InternalResourceViewResolver 最终会将逻辑视图解析为 InternalResourceView 实例,这个实例会引用JSP文件。
+```
 ```java
     @Bean
     public ViewResolver viewResolver() {
@@ -52,11 +55,35 @@ Spring提供了两种支持JSP视图的方式:
 ```xml
 <bean id="viewResolver"
     class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-    c:prefix="/WEB-INF/views/"
-    c:suffix=".jsp"
+    p:prefix="/WEB-INF/views/"
+    p:suffix=".jsp"
     />
 ```
 InternalResourceViewResolver配置就绪之后,它就会将逻辑视图解析为JSP文件,如下所示:
 > home 将会解析为 "/WEB-INF/views/home.jsp"
 
 2). 解析JSTL视图
+```text
+如果JSP使用JSTL标签来处理格式化和信息的话,那么我们希望InternalResourceViewResolver将试图解析为JstlView;
+JSTL 的格式化标签需要一个 Locale 对象,以便于恰当的格式化地域相关的值,如日期和货币;
+通过解析JstlView,JSTL能够获得Locale对象以及Spring中的配置的信息资源。
+```
+```java
+    @Bean
+    public ViewResolver viewResolver() {
+        IntenalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setSuffix(".jsp");
+        resolver.setViewClass(org.springframework.web.servlet.view.JstlView.class);
+        return resolver;
+    }
+```
+或
+```xml
+<bean id="viewResolver"
+    class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+    p:prefix="/WEB-INF/views/"
+    p:suffix=".jsp"
+    p:viewClass="org.springframework.web.servlet.view.JstlView"
+    />
+```
