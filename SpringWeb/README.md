@@ -215,8 +215,18 @@ SpringMVC 允许以多种方式将客户端数据传送到控制器的处理器�
 ### Validation 校验表单
 Spring3.0开始提供了对Java校验API(Java Validation API,又称 JSR-303)的支持,这些注解可以放到属性上面,从而限制这些属性的值;所有的注解都位于javax.validation.constraints包中。
 
-注解 | 描述
-----|------
-foo | foo
-bar | bar
-baz | baz
+ 注解        | 描述
+-------------|------
+@AssertFalse | foo
+@AssertTrue  | bar
+@DecimalMax  | baz
+@DecimalMin  |
+@Digits      |
+@Future      |
+@Past        |
+@Max         |
+@Min         |
+@NotNull     |
+@Null        |
+@Pattern     |
+@Size        |
