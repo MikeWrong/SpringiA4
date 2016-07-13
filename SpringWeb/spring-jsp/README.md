@@ -87,7 +87,7 @@ JSTL 的格式化标签需要一个 Locale 对象,以便于恰当的格式化地
     p:viewClass="org.springframework.web.servlet.view.JstlView"
     />
 ```
-##### 将表单绑定到模型上
+#### 将表单绑定到模型上
 ```text
 Spring的表单绑定JSP标签库包含了14个标签,它会绑定模型中的一个对象,能够根据模型中对象的属性填充值;
 标签库中还包含了一个为用户展现错误的标签,它会将错误信息渲染到最终的HTML之中。
