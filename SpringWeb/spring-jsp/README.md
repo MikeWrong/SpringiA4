@@ -96,7 +96,16 @@ Spring的表单绑定JSP标签库包含了14个标签,它会绑定模型中的�
 ```jsp
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 ```
-
+```jsp
+<sf:form method="POST" commandName="spitter">
+    First Name: <sf:input path="firstName"/><br/>
+    Last Name: <sf:input path="lastName"/><br/>
+    Email: <sf:input path="email"/><br/>
+    Username: <sf:input path="username"/><br/>
+    Password: <sf:password path="password"/><br/>
+    <input type="submit" value="Register"/>
+</sf:form>
+```
 
 
 
