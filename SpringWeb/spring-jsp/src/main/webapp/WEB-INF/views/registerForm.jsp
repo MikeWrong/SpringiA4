@@ -7,15 +7,25 @@
         .error {
             color: red;
         }
+
+        label.error > input {
+            background-color: #e99;
+        }
     </style>
 </head>
 <body>
 
 <sf:form method="POST" commandName="spitter" action="register">
-    First Name: <sf:input path="firstName"/>
+    First Name:
+    <sf:label path="firstName" cssErrorClass="error">
+        <sf:input path="firstName"/>
+    </sf:label>
     <sf:errors path="firstName" cssClass="error"/>
     <br/>
-    Last Name: <sf:input path="lastName"/>
+    Last Name:
+    <sf:label path="lastName" cssErrorClass="error">
+        <sf:input path="lastName"/>
+    </sf:label>
     <sf:errors path="lastName" cssClass="error"/>
     <br/>
     Email: <sf:input path="email"/>
