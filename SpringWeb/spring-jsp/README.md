@@ -87,3 +87,4 @@ JSTL 的格式化标签需要一个 Locale 对象,以便于恰当的格式化地
     p:viewClass="org.springframework.web.servlet.view.JstlView"
     />
 ```
+##### 将表单绑定到模型上
