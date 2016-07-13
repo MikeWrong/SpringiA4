@@ -3,8 +3,9 @@ package me.caiyuan.spring.web.repository;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
 import java.util.Date;
 
 /**
@@ -13,10 +14,23 @@ import java.util.Date;
  */
 public class Spittle {
 
+    @NotNull
+    @Max(Long.MAX_VALUE)
+    @Min(0)
     private Long id;
+
+    @NotNull
     private String message;
+
+    @NotNull
     private Date time;
+
+    @NotNull
+    @Min(0)
     private Double latitude;
+
+    @NotNull
+    @Min(0)
     private Double longitude;
 
     public Spittle() {

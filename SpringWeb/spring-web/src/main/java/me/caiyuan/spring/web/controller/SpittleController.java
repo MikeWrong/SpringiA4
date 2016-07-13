@@ -5,10 +5,12 @@ import me.caiyuan.spring.web.repository.SpittleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,7 +80,10 @@ public class SpittleController {
     }
 
     @RequestMapping(value = "register", method = POST)
-    public String register(Spittle spittle) {
+    public String register(@Valid Spittle spittle, Errors errors) {
+        if (errors.hasErrors()) {
+            return "registerForm";
+        }
         spittleList.add(spittle);
         return "redirect:/spittles/showRegisterData";
     }
