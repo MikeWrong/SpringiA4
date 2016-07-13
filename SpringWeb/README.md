@@ -213,7 +213,7 @@ SpringMVC 允许以多种方式将客户端数据传送到控制器的处理器�
 > 2). "forward:" 请求转发(服务器端跳转), InternalResourceViewResolver当发现视图格式中以 "forward:" 作为前缀时, 请求将前往 forward 制定的URL路径。
 
 ### Validation 校验表单
-Spring3.0开始提供了对Java校验API(Java Validation API,又称 JSR-303)的支持,这些注解可以放到属性上面,从而限制这些属性的值;所有的注解都位于javax.validation.constraints包中。
+- Spring3.0开始提供了对Java校验API(Java Validation API,又称 JSR-303)的支持,这些注解可以放到属性上面,从而限制这些属性的值;所有的注解都位于javax.validation.constraints包中。
 
  注解        | 描述
 -------------|------
@@ -230,3 +230,28 @@ Spring3.0开始提供了对Java校验API(Java Validation API,又称 JSR-303)的�
 @Null        | 所注解元素的值必须为 null
 @Pattern     | 所注解的元素的值必须匹配给定的正则表达式
 @Size        | 所注解的元素的值必须是 String、集合或数组，并且它的长度要符合给定的范围
+
+- 在Spring MVC中要使用Java校验API的话,并不需要什么额外的配置;只要保证在类路径下包含这个Java Validation API的实现即可,比如Hibernate Validation。
+
+```xml
+    <dependency>
+        <groupId>javax.validation</groupId>
+        <artifactId>validation-api</artifactId>
+        <version>1.1.0.Final</version>
+    </dependency>
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-validator</artifactId>
+        <version>5.2.4.Final</version>
+    </dependency>
+```
+```java
+    @RequestMapping(value = "register", method = POST)
+    public String register(@Valid Spittle spittle, Errors errors) {
+        if (errors.hasErrors()) {
+            return "registerForm";
+        }
+        spittleList.add(spittle);
+        return "redirect:/spittles/showRegisterData";
+    }
+```
