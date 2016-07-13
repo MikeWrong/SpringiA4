@@ -234,11 +234,13 @@ SpringMVC 允许以多种方式将客户端数据传送到控制器的处理器�
 - 在Spring MVC中要使用Java校验API的话,并不需要什么额外的配置;只要保证在类路径下包含这个Java Validation API的实现即可,比如Hibernate Validation。
 
 ```xml
+    <!-- 接口 -->
     <dependency>
         <groupId>javax.validation</groupId>
         <artifactId>validation-api</artifactId>
         <version>1.1.0.Final</version>
     </dependency>
+    <!-- 实现 -->
     <dependency>
         <groupId>org.hibernate</groupId>
         <artifactId>hibernate-validator</artifactId>
