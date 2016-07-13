@@ -31,3 +31,30 @@ VelocityViewResolver            | 将视图解析为Velocity模板
 XmlViewResolver                 | 将试图解析为特定XML文件中的Bean定义,类似于BeanNameViewResolver
 XsltViewResolver                | 将试图解析为XSLT转换后的结果
 
+### 创建JSP视图
+
+Spring提供了两种支持JSP视图的方式:
+- InternalResourceViewResolver会将试图名称解析为JSP文件。另外,如果在理的JSP页面中使用了JSP标签库(JSTL)的话,
+  InternalResourceViewResolver能够将视图名解析为JstlView形式的JSP文件,从而将JSTL本地化和资源bundle变量暴露给JSTL的格式化(formatting)和信息(message)标签。
+- Spring提供了两个JSP标签库,一个用于表单到模型的绑定,另一个提供了通用的工具类特性。
+
+配置适用于JSP的视图解析器
+```java
+    @Bean
+    public ViewResolver viewResolver() {
+        IntenalResourceViewResolver resolver = new InternalResourceViewResolver();
+        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setSuffix(".jsp");
+        return resolver;
+    }
+```
+或
+```xml
+<bean id="viewResolver"
+    class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+    c:prefix="/WEB-INF/views/"
+    c:suffix=".jsp"
+    />
+```
+InternalResourceViewResolver配置就绪之后,它就会将逻辑视图解析为JSP文件,如下所示:
+> - home 将会解析为 "/WEB-INF/views/home.jsp"
