@@ -38,7 +38,7 @@ Spring提供了两种支持JSP视图的方式:
 >   InternalResourceViewResolver能够将视图名解析为JstlView形式的JSP文件,从而将JSTL本地化和资源bundle变量暴露给JSTL的格式化(formatting)和信息(message)标签。
 > - Spring提供了两个JSP标签库,一个用于表单到模型的绑定,另一个提供了通用的工具类特性。
 
-1. 配置适用于JSP的视图解析器
+1). 配置适用于JSP的视图解析器
 ```java
     @Bean
     public ViewResolver viewResolver() {
@@ -59,4 +59,4 @@ Spring提供了两种支持JSP视图的方式:
 InternalResourceViewResolver配置就绪之后,它就会将逻辑视图解析为JSP文件,如下所示:
 > home 将会解析为 "/WEB-INF/views/home.jsp"
 
-2. 解析JSTL视图
+2). 解析JSTL视图
