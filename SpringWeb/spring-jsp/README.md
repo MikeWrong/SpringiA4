@@ -141,7 +141,7 @@ spitter.lastName=size must be between {min} and {max}
 ```
 ```properties
 # ValidationMessages_zh_CN.properties
-# 国际化错误信息 (中文 zh_CH); 错误消息使用 Unicode 字符描述
+# 国际化错误信息 (中文 zh_CH); 中文使用 Unicode 字符描述
 spitter.lastName=\u4E2A\u6570\u5FC5\u987B\u5728{min}\u548C{max}\u4E4B\u95F4
 ```
 
