@@ -92,17 +92,24 @@ JSTL 的格式化标签需要一个 Locale 对象,以便于恰当的格式化地
 Spring的表单绑定JSP标签库包含了14个标签,它会绑定模型中的一个对象,能够根据模型中对象的属性填充值;
 标签库中还包含了一个为用户展现错误的标签,它会将错误信息渲染到最终的HTML之中。
 ```
+![sf](sf_taglib.png)
 为了使用表单绑定库,需要在JSP页面中对其进行声明:
 ```jsp
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 ```
 ```jsp
-<sf:form method="POST" commandName="spitter">
-    First Name: <sf:input path="firstName"/><br/>
-    Last Name: <sf:input path="lastName"/><br/>
-    Email: <sf:input path="email"/><br/>
-    Username: <sf:input path="username"/><br/>
-    Password: <sf:password path="password"/><br/>
+<sf:form method="POST" commandName="spitter" action="register">
+    <sf:errors path="*" element="div" cssClass="error"/>
+    First Name:
+    <sf:label path="firstName" cssErrorClass="error">
+        <sf:input path="firstName"/>
+    </sf:label>
+    <sf:errors path="firstName" cssClass="error"/>
+    <br/>
+    Last Name:
+    <sf:label path="lastName" cssErrorClass="error">
+        <sf:input path="lastName"/>
+    </sf:label>
     <input type="submit" value="Register"/>
 </sf:form>
 ```
