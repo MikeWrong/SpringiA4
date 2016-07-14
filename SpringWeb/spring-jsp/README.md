@@ -187,6 +187,11 @@ spitter.lastName=\u4E2A\u6570\u5FC5\u987B\u5728{min}\u548C{max}\u4E4B\u95F4
 &lt;s:url>            | 创建相对于上下文URL，支持URL模板变量以及HTML/XML/JavaScript转义，可以渲染URL（默认行为），也可以将其设置为页面作用域、请求作用域、会话作用域或应用作用域的变量（通过使用var和scope属性实现）
 &lt;s:eval>           | 计算符合Spring表达式语言（SpEL）语法的摸个表达式的值，然后要么进行渲染（默认行为），要么将其设置为页面作用域、请求作用域、会话作用域或应用作用域的变量（通过使用var和scope属性实现）
 
+- 展现国际化信息
+```jsp
+  <s:message> 将会根据 key 为 page.register 的信息源来渲染文本。
+  <s:message code="page.register"/>
+```
 
 
 
