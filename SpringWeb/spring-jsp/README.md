@@ -120,6 +120,21 @@ Spring的表单绑定JSP标签库包含了14个标签,它会绑定模型中的�
     <input type="submit" value="Register"/>
 </sf:form>
 ```
-
+```java
+    @NotNull
+    @Size(min = 5, max = 12, message = "First Name 值的长度在 5 到 12 之间")
+    private String firstName;
+    @NotNull
+    @Size(min = 5, max = 12, message = "{spitter.lastName}")
+    private String lastName;
+```
+```properties
+# ValidationMessages.properties
+spitter.lastName=size must be between {min} and {max}
+```
+```properties
+# ValidationMessages_zh_CN.properties
+spitter.lastName=\u4E2A\u6570\u5FC5\u987B\u5728{min}\u548C{max}\u4E4B\u95F4
+```
 
 
