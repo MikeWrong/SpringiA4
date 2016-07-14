@@ -121,12 +121,15 @@ Spring的表单绑定JSP标签库包含了14个标签,它会绑定模型中的�
 </sf:form>
 ```
 ```java
+public class Spitter {
+    // 在 bean 中添加校验规则
     @NotNull
     @Size(min = 5, max = 12, message = "First Name 值的长度在 5 到 12 之间")
     private String firstName;
     @NotNull
     @Size(min = 5, max = 12, message = "{spitter.lastName}")
     private String lastName;
+}
 ```
 ```properties
 # ValidationMessages.properties
