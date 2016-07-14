@@ -192,5 +192,21 @@ spitter.lastName=\u4E2A\u6570\u5FC5\u987B\u5728{min}\u548C{max}\u4E4B\u95F4
   <!-- <s:message> 将会根据 key 为 page.register 的信息源来渲染文本。-->
   <s:message code="page.register"/>
 ```
+Spring 有多个信息源的类，它们都实现了 MessageSource 接口；在这个类中，根为常见和有用的是 ResourceBundleMessageSource，他会从一个属性文件(.properties)中加载信息，这个属性文件的名称是根据基类名称（base name）衍生而来的。
+```java
+    @Bean
+    public MessageSource messageSource() {
+        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+        // 定义属性文件（.properties) 基类名称；这里是指 message.properties 或 message_zh_CN.properties 等属性文件
+        messageSource.setBasename("message");
+        return messageSource;
+    }
+```
+
+
+
+
+
+
 
 
