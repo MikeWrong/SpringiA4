@@ -100,12 +100,14 @@ Spring的表单绑定JSP标签库包含了14个标签,它会绑定模型中的�
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 ```
 ```jsp
+<!-- 绑定spitter对象到表单 -->
 <sf:form method="POST" commandName="spitter" action="register">
 	<!-- sf:errors 标签的path属性值设置为 “*” ,这是一个通配符选择器表示展示所有属性的所有错误 -->
     <sf:errors path="*" element="div" cssClass="error"/>
     <!-- 验证失败时为标签添加 class 属性值   -->
     <sf:label path="firstName" cssErrorClass="error">
     	First Name:
+    	<!-- 绑定spitter对象的firstName属性 -->
         <sf:input path="firstName"/>
     </sf:label>
     <!-- firstName 参数验证失败是展示错误信息 -->
