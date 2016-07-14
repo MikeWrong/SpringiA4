@@ -10,10 +10,10 @@ import javax.validation.constraints.Size;
 public class Spitter {
 
     @NotNull
-    @Size(min = 5, max = 12)
+    @Size(min = 5, max = 12, message = "First Name 值的长度在 5 到 12 之间")
     private String firstName;
     @NotNull
-    @Size(min = 5, max = 12)
+    @Size(min = 5, max = 12, message = "{spitter.lastName}")
     private String lastName;
     @NotNull
     private String email;
