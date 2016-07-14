@@ -192,10 +192,11 @@ spitter.lastName=\u4E2A\u6570\u5FC5\u987B\u5728{min}\u548C{max}\u4E4B\u95F4
   <!-- <s:message> 将会根据 key 为 page.register 的信息源来渲染文本。-->
   <s:message code="page.register"/>
 ```
-```
-Spring 有多个信息源的类，它们都实现了 MessageSource 接口；在这个类中，根为常见和有用的是 ResourceBundleMessageSource，他会从一个属性文件(.properties)中加载信息，这个属性文件的名称是根据基类名称（base name）衍生而来的。
 
-```
+> Spring 有多个信息源的类，它们都实现了 MessageSource 接口：
+> - 最为常见和有用的是 ResourceBundleMessageSource，它会在类路径下的属性文件(.properties)中加载信息，这个属性文件的名称是根据基类名称（base name）衍生而来的。
+> - 另一种可选方案是使用 ReloadableResourceBundleMessageSource，它能够重新加载信息属性，而不必重编译或重启应用；与 ResourceBundleMessageSource 的关键区别在于 basename 属性设置为在应用的外部查找；basename 前缀设置为 "classpath:" 表示从类路径下查找属性, 前缀设置为 "file:" 表示从服务器系统文件目录下查找属性。
+
 ```java
     // 使用 ResourceBundleMessageSource 创建信息源
     @Bean
@@ -203,6 +204,17 @@ Spring 有多个信息源的类，它们都实现了 MessageSource 接口；在�
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         // 定义属性文件（.properties) 基类名称；这里是指 message.properties 或 message_zh_CN.properties 等属性文件
         messageSource.setBasename("message");
+        return messageSource;
+    }
+```
+```java
+    // 使用 ResourceBundleMessageSource 创建信息源
+    @Bean
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("classpath:message");
+        // messageSource.setBasename("file:/system_file_path/message");
+        messageSource.setCacheSeconds(30);
         return messageSource;
     }
 ```
