@@ -95,8 +95,10 @@ Spring的表单绑定JSP标签库包含了14个标签,它会绑定模型中的�
 
 ![sf](sf_taglib.png)
 
-为了使用表单绑定库,需要在JSP页面中对其进行声明:
+#### 表单数据校验和错误处理
+
 ```jsp
+<!-- 为了使用表单绑定库,需要在JSP页面中对其进行声明 -->
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 ```
 ```jsp
