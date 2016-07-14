@@ -121,6 +121,31 @@ Spring的表单绑定JSP标签库包含了14个标签,它会绑定模型中的�
 </sf:form>
 ```
 ```java
+@Controller
+public class SpitterController {
+
+    @RequestMapping(value = "register", method = GET)
+    public String showRegistrationForm(Model model) {
+        Spitter defaultSpitter = new Spitter();
+        // 设置表单的默认值
+        defaultSpitter.setUsername("Guest");
+        // 在模型中必须有一个key为spitter的对象,否则的话,表单不能正常渲染(会出现JSP错误 java.lang.IllegalStateException: Neither BindingResult nor plain target object for bean name 'spitter' available as request attribute)
+        model.addAttribute(defaultSpitter);
+        return "registerForm";
+    }
+
+    @RequestMapping(value = "register", method = POST)
+    public String showRegistrationForm(@Valid Spitter spitter, Errors errors) {
+        // 校验错误处理
+        if (errors.hasErrors()) {
+            return "registerForm";
+        }
+        // 保存 Spitter
+        // ...
+        return "redirect:register";
+    }
+}
+
 public class Spitter {
     // 在 bean 中添加校验规则
     @NotNull
