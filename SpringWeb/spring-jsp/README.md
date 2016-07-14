@@ -189,9 +189,8 @@ spitter.lastName=\u4E2A\u6570\u5FC5\u987B\u5728{min}\u548C{max}\u4E4B\u95F4
 
 - 展现国际化信息
 ```jsp
-  <s:message> 将会根据 key 为 page.register 的信息源来渲染文本。
+  <!-- <s:message> 将会根据 key 为 page.register 的信息源来渲染文本。-->
   <s:message code="page.register"/>
 ```
-
 
 
