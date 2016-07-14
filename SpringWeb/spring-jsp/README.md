@@ -124,19 +124,24 @@ Spring的表单绑定JSP标签库包含了14个标签,它会绑定模型中的�
 public class Spitter {
     // 在 bean 中添加校验规则
     @NotNull
+    // 在 message 属性值中直接指定校验错误时的返回信息
     @Size(min = 5, max = 12, message = "First Name 值的长度在 5 到 12 之间")
     private String firstName;
+
     @NotNull
+    // message 属性值从资源文件 ValidationMessages.properties 中获取, 错误信息的键包含在 "{" 和 "}" 之间
     @Size(min = 5, max = 12, message = "{spitter.lastName}")
     private String lastName;
 }
 ```
 ```properties
 # ValidationMessages.properties
+# “{” 和 “}” 之间的占位符对应的值从注解中获取; 如: {min} 和 {max} 的值会引用 @Size 注解上所设置的 min 和 max 属性
 spitter.lastName=size must be between {min} and {max}
 ```
 ```properties
 # ValidationMessages_zh_CN.properties
+# 国际化错误信息 (中文 zh_CH); 错误消息使用 Unicode 字符描述
 spitter.lastName=\u4E2A\u6570\u5FC5\u987B\u5728{min}\u548C{max}\u4E4B\u95F4
 ```
 
