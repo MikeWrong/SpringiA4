@@ -208,7 +208,7 @@ spitter.lastName=\u4E2A\u6570\u5FC5\u987B\u5728{min}\u548C{max}\u4E4B\u95F4
     }
 ```
 ```java
-    // 使用 ResourceBundleMessageSource 创建信息源
+    // 使用 ReloadableResourceBundleMessageSource 创建信息源
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
