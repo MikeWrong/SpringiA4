@@ -1,6 +1,7 @@
 package me.caiyuan.spring.web.controller;
 
 import me.caiyuan.spring.web.data.Spitter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -37,6 +38,11 @@ public class SpitterController {
         // 保存 Spitter
         // ...
         return "redirect:register";
+    }
+
+    @Autowired
+    public void test(Object numberList) {
+        System.out.println(numberList);
     }
 
 }
