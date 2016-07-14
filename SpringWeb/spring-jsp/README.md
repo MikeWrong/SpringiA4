@@ -101,15 +101,18 @@ Spring的表单绑定JSP标签库包含了14个标签,它会绑定模型中的�
 ```
 ```jsp
 <sf:form method="POST" commandName="spitter" action="register">
+	<!-- sf:errors 标签的path属性值设置为 “*” ,这是一个通配符选择器表示展示所有属性的所有错误 -->
     <sf:errors path="*" element="div" cssClass="error"/>
-    First Name:
+    <!-- 验证失败时为标签添加 class 属性值   -->
     <sf:label path="firstName" cssErrorClass="error">
+    	First Name:
         <sf:input path="firstName"/>
     </sf:label>
+    <!-- firstName 参数验证失败是展示错误信息 -->
     <sf:errors path="firstName" cssClass="error"/>
     <br/>
-    Last Name:
     <sf:label path="lastName" cssErrorClass="error">
+    	Last Name:
         <sf:input path="lastName"/>
     </sf:label>
     <input type="submit" value="Register"/>
