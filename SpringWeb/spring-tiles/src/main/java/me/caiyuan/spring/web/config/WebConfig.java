@@ -45,7 +45,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         return new TilesViewResolver();
     }
 
-    // 配置静态资源的处理
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
