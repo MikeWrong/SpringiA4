@@ -50,12 +50,5 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         configurer.enable();
     }
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.hasMappingForPattern("/resources/**");
-        registry.addResourceHandler("/resources/");
-        super.addResourceHandlers(registry);
-    }
-
 }
 

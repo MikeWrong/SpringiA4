@@ -18,6 +18,6 @@
         <value>3</value>
     </util:list>
 
-    <!--<mvc:resources mapping="/resources/**" location="/resources/"/>-->
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
 
 </beans>
