@@ -25,14 +25,6 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Bean
-    public MessageSource messageSource() {
-        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename("classpath:message");
-        messageSource.setCacheSeconds(30);
-        return messageSource;
-    }
-
-    @Bean
     public TilesConfigurer tilesConfigurer() {
         TilesConfigurer tiles = new TilesConfigurer();
         tiles.setDefinitions("/WEB-INF/layout/tiles.xml");
@@ -43,6 +35,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Bean
     public TilesViewResolver tilesViewResolver() {
         return new TilesViewResolver();
+    }
+
+    @Bean
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("classpath:message");
+        messageSource.setCacheSeconds(30);
+        return messageSource;
     }
 
     @Override
