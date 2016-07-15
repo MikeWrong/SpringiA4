@@ -6,9 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <title>Spittr</title>
-    <link rel="stylesheet"
-          type="text/css"
-          href="<s:url value="/resources/style.css" />" >
+    <link rel="stylesheet" type="text/css" href="<s:url value="/resources/style.css" />" >
   </head>
   <body>
     <div id="header">
