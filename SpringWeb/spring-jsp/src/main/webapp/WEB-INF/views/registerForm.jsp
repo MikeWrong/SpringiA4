@@ -16,12 +16,6 @@
 </head>
 <body>
 
---
-<s:escapeBody javaScriptEscape="true">
-<h1>Hello</h1>
-</s:escapeBody>
---
-
 <sf:form method="POST" commandName="spitter" action="register">
     <sf:errors path="*" element="div" cssClass="error"/>
     First Name:
