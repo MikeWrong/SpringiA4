@@ -17,6 +17,6 @@ import static org.springframework.context.annotation.FilterType.ANNOTATION;
 @ComponentScan(
         basePackageClasses = RootPackage.class,
         excludeFilters = {@Filter(type = ANNOTATION, value = EnableWebMvc.class)})
-@ImportResource("classpath:root-context.xml")
+@ImportResource("classpath:*-context.xml")
 public class RootConfig {
 }
