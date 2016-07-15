@@ -261,5 +261,22 @@ var spittlesUrl = "${spittlesJSUrl}"
 </script>
 ```
 
+- 转义内容
+
+&lt;s:escapeBody> 标签是一个通用的转义标签。它会渲染标签体中内嵌的内容，并在必要的时候进行转义；它不能将内容设置为变量。
+```jsp
+<s:escapeBody htmlEscape="true">
+<h1>Hello</h1>
+</s:escapeBody>
+<!-- 渲染后的HTML内容如下：-->
+&lt;h1&gt;Hello&lt;/h1&gt;
+
+<s:escapeBody javaScriptEscape="true">
+<h1>Hello</h1>
+</s:escapeBody>
+<!-- 渲染后的JavaScript内容如下：-->
+\n\u003Ch1\u003EHello\u003C\/h1\u003E\n
+```
+
 
 

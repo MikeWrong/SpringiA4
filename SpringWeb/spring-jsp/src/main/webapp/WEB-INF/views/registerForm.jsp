@@ -16,16 +16,11 @@
 </head>
 <body>
 
-<s:url value="/spittles" var="spittlesJSUrl" javaScriptEscape="true">
-    <s:param name="max" value="60" />
-    <s:param name="count" value="20" />
-</s:url>
-<script>
-    var spittlesUrl = "${spittlesJSUrl}"
-</script>
-<script>
-    var spittlesUrl = "\/spitter\/spittles?max=60&count=20"
-</script>
+--
+<s:escapeBody javaScriptEscape="true">
+<h1>Hello</h1>
+</s:escapeBody>
+--
 
 <sf:form method="POST" commandName="spitter" action="register">
     <sf:errors path="*" element="div" cssClass="error"/>
