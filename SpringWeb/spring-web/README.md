@@ -54,6 +54,8 @@ package me.caiyuan.spring.web.config;
 @ComponentScan(
         basePackageClasses = RootPackage.class,
         excludeFilters = {@Filter(type = ANNOTATION, value = EnableWebMvc.class)})
+// 加载 classpath 路径下后缀是 "-context.xml" 的所有 spring 配置文件
+@ImportResource("classpath:*-context.xml")
 public class RootConfig {
 }
 ```
