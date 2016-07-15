@@ -219,10 +219,47 @@ spitter.lastName=\u4E2A\u6570\u5FC5\u987B\u5728{min}\u548C{max}\u4E4B\u95F4
     }
 ```
 
+- 创建 URL
 
+&lt;s:url> 是JSTL中&lt;c:url>标签的替代者，它的主要任务就是创建URL，然后将其赋值给一个变量或者渲染到响应中；按照最简单的形式，&lt;s:url>会接受一个相对于Servlet上下文的URL，并在渲染的时候，预先添加上Servlet上下文路径。
+```jsp
+<a href="<s:url href="/spitter/register" />">Register</a>
+<!-- 如果Servlet上下文为spitter，那么在响应中将会渲染如下HTML -->
+<a href="/spittr/spitter/register">Register</a>
+```
+```jsp
+<s:url href="/spitter/register" var="registerUrl" />
+<a href="${registerUrl}">Register</a>
 
+<s:url href="/spittles" var="spittlesUrl">
+  <s:param name="max" value="60" />
+  <s:param name="count" value="20" />
+</s:url>
+<!-- 渲染HTML是：/spitter/spittles?max=60&count=20 -->
 
+<s:url href="/spitter/{username}" var="spitterUrl">
+  <s:param name="username" value="jbauer" />
+</s:url>
+<!-- 渲染HTML是：/spitter/spitter/jbauer -->
 
+<s:url value="/spittles" htmlEscape="true">
+  <s:param name="max" value="60" />
+  <s:param name="count" value="20" />
+</s:url>
+<!-- 渲染HTML是：/spitter/spittles?max=60&amp;count=20 -->
+
+<s:url value="/spittles" var="spittlesJSUrl" javaScriptEscape="true">
+  <s:param name="max" value="60" />
+  <s:param name="count" value="20" />
+</s:url>
+<script>
+var spittlesUrl = "${spittlesJSUrl}"
+</script>
+<!-- 渲染JavaScript如下：-->
+<script>
+  var spittlesUrl = "\/spitter\/spittles?max=60&count=20"
+</script>
+```
 
 
 
