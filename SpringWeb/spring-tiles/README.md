@@ -43,7 +43,14 @@ Spring Titles
 
     <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
 ```
+
 - 定义 Tiles
+
+```text
+Apache Tiles 提供了文档类型定义（DTD），用来在XML文件中指定Tile的定义；每个定义文件中需要包含一个<definition>元素，这个元素会有一个或多个<put-attribute>元素。
+每个<definition>元素都定义了一个Tile，它最终引用的是一个JSP模板；某个Tiles还可能引用其他的JSP模板，使用这些JSP模板嵌入到主模板中。
+```
+
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE tiles-definitions PUBLIC
@@ -56,9 +63,18 @@ Spring Titles
         <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp"/>
     </definition>
 
+	<!-- registerForm 扩展自 base -->
     <definition name="registerForm" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/registerForm.jsp"/>
     </definition>
+	<!-- 上面的 registerForm 相当于下面的配置 -->
+    <!--
+    <definition name="registerForm" template="/WEB-INF/layout/page.jsp">
+    	<put-attribute name="header" value="/WEB-INF/layout/header.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/registerForm.jsp"/>
+    </definition>
+    -->
 
 </tiles-definitions>
 ```
