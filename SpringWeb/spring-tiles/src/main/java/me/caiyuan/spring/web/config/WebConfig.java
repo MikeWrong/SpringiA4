@@ -24,18 +24,18 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 @ComponentScan(basePackageClasses = WebPackage.class)
 public class WebConfig extends WebMvcConfigurerAdapter {
 
-    @Bean
-    public TilesConfigurer tilesConfigurer() {
-        TilesConfigurer tiles = new TilesConfigurer();
-        tiles.setDefinitions("/WEB-INF/layout/tiles.xml");
-        tiles.setCheckRefresh(true);
-        return tiles;
-    }
-
-    @Bean
-    public TilesViewResolver tilesViewResolver() {
-        return new TilesViewResolver();
-    }
+//    @Bean
+//    public TilesConfigurer tilesConfigurer() {
+//        TilesConfigurer tiles = new TilesConfigurer();
+//        tiles.setDefinitions("/WEB-INF/layout/tiles.xml");
+//        tiles.setCheckRefresh(true);
+//        return tiles;
+//    }
+//
+//    @Bean
+//    public TilesViewResolver tilesViewResolver() {
+//        return new TilesViewResolver();
+//    }
 
     @Bean
     public MessageSource messageSource() {
