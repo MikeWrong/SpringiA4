@@ -292,7 +292,7 @@ SpringMVC 允许以多种方式将客户端数据传送到控制器的处理器�
     }
 ```
 
-### AntPathMatcher
+### AntPath Matcher
 
 ```java
 public class AntPathMatcher implements PathMatcher
@@ -300,7 +300,6 @@ public class AntPathMatcher implements PathMatcher
 
 ```text
 PathMatcher implementation for Ant-style path patterns.
-
 Part of this mapping code has been kindly borrowed from Apache Ant.
 ```
 
@@ -309,12 +308,12 @@ Part of this mapping code has been kindly borrowed from Apache Ant.
 > - * matches zero or more characters
 > - ** matches zero or more directories in a path
 
-> ###### Examples
+> ##### Examples
 > - com/t?st.jsp — matches com/test.jsp but also com/tast.jsp or com/txst.jsp
 > - com/*.jsp — matches all .jsp files in the com directory
 > - com/**/test.jsp — matches all test.jsp files underneath the com path
 > - org/springframework/**/*.jsp — matches all .jsp files underneath the org/springframework path
 > - org/**/servlet/bla.jsp — matches org/springframework/servlet/bla.jsp but also org/springframework/testing/servlet/bla.jsp and org/servlet/bla.jsp
 
-> ###### Note: 
+> ##### Note: 
 > a pattern and a path must both be absolute or must both be relative in order for the two to match. Therefore it is recommended that users of this implementation to sanitize patterns in order to prefix them with "/" as it makes sense in the context in which they're used.
