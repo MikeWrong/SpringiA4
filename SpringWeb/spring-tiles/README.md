@@ -32,5 +32,14 @@ Spring Titles
 ```
 - XmlConfig 配置方式
 ```xml
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/layout/tiles.xml</value>
+                <!--<value>/WEB-INF/views/**/tiles.xml</value>-->
+            </list>
+        </property>
+    </bean>
 
+    <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
 ```
