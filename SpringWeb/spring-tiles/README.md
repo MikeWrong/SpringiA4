@@ -92,13 +92,15 @@ Apache Tiles 提供了文档类型定义（DTD），用来在XML文件中指定T
 	<!-- registerForm 扩展自 base -->
     <definition name="registerForm" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/registerForm.jsp"/>
-    </definition>
+        <!--使用 el 表达式 -->
+        <put-attribute name="el" expression="1 + 2 = ${1+2}"/></definition>
 	<!-- 上面的 registerForm 相当于下面的配置 -->
     <!--
     <definition name="registerForm" template="/WEB-INF/layout/page.jsp">
     	<put-attribute name="header" value="/WEB-INF/layout/header.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp"/>
         <put-attribute name="body" value="/WEB-INF/views/registerForm.jsp"/>
+        <put-attribute name="el" expression="1 + 2 = ${1+2}"/></definition>
     </definition>
     -->
 

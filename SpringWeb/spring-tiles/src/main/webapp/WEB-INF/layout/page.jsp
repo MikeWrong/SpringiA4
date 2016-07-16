@@ -15,6 +15,9 @@
     <div id="content">
       <t:insertAttribute name="body" />
     </div>
+    <div>
+      <t:insertAttribute name="el"/>
+    </div>
     <div id="footer">
       <t:insertAttribute name="footer" />
     </div>
