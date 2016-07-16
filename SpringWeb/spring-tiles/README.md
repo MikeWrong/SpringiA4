@@ -1,7 +1,7 @@
 Spring Titles
 --
 
-> 使用 Apache Titles 3
+> 使用 <a href="http://tiles.apache.org/framework/tutorial/index.html">Apache Titles 3 </a>
 
 ```text
 当配置TilesConfiguration的时候，所要设置的最重要的属性就是definitions；
