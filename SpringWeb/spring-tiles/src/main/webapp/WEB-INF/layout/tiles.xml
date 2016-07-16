@@ -10,7 +10,7 @@
     </definition>
 
     <definition name="registerForm" extends="base">
-        <put-attribute name="body" value="/WEB-INF/views/registerForm.jsp"/>
+        <put-attribute name="body" value="${requestScope.body}"/>
     </definition>
 
 </tiles-definitions>

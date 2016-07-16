@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>org.apache.tiles</groupId>
-            <artifactId>tiles-jsp</artifactId>
+            <artifactId>tiles-extras</artifactId>
             <version>3.0.5</version>
         </dependency>
         <dependency>

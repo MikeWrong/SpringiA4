@@ -7,6 +7,31 @@ Spring Titles
 当配置TilesConfiguration的时候，所要设置的最重要的属性就是definitions；
 这个属性接受一个String数组，其中每一条都指定一个Tile定义的XML文件。(对于Spring来讲，我们在"/WEB-INF/layout/"目录下查找tiles.xml）
 ```
+- Tiles 3 as a Maven dependency
+
+```xml
+<!--The complete Tiles dependency with all supported technologies is achievable with the following dependency declaration:-->
+  <dependency>
+    <groupId>org.apache.tiles</groupId>
+    <artifactId>tiles-extras</artifactId>
+    <version>3.0.5</version>
+  </dependency>
+
+<!--The basic Tiles dependency with only servlet support can be added this way:-->
+  <dependency>
+    <groupId>org.apache.tiles</groupId>
+    <artifactId>tiles-servlet</artifactId>
+    <version>3.0.5</version>
+  </dependency>
+
+<!--If you need a dependency to Tiles JSP support, Declare the dependency this way:-->
+  <dependency>
+    <groupId>org.apache.tiles</groupId>
+    <artifactId>tiles-jsp</artifactId>
+    <version>3.0.5</version>
+  </dependency>
+```
+
 - JavaConfig 配置方式
 ```java
 	// 配置 TilesConfigurer 类解析 Tile 定义
