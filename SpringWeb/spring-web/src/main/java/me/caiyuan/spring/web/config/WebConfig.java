@@ -39,6 +39,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         configurer.enable();
     }
 
+    // 根据给定规则配置静态资源的处理
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
