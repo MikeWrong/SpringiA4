@@ -5,27 +5,27 @@ Spring Titles
 Introduction
 This tutorial is intended to provide a help for first-time Tiles users, in the context of a web application.
 
-1. Summary
-2. The "composite view" pattern
-3. Configuring your web application
-    1. Basic Usage
-    2. Tiles Concepts
-4. Creating Tiles Pages
-    Advanced Topics
-    Nesting and Extending Definitions
-    List Attributes
-    Runtime Composition
-    View Preparers
-    Rendering Utilities
-    Tiles Localization
-    Wildcard support
-    EL support
-    Attribute rendering
-    Using multiple containers
-    Security
-Integration with other technologies
-    Integration with other frameworks
-    Integration with other view technologies
+#### Summary
+1. The "composite view" pattern
+2. Configuring your web application
+3. Basic Usage
+    1. Tiles Concepts
+    2. Creating Tiles Pages
+4. Advanced Topics
+    1. Nesting and Extending Definitions
+    2. List Attributes
+    3. Runtime Composition
+    4. View Preparers
+    5. Rendering Utilities
+    6. Tiles Localization
+    7. Wildcard support
+    8. EL support
+    9. Attribute rendering
+    10. Using multiple containers
+    11. Security
+5. Integration with other technologies
+    1. Integration with other frameworks
+    2. Integration with other view technologies
 
 - Tiles 3 as a Maven dependency
 
