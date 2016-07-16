@@ -40,9 +40,4 @@ public class SpitterController {
         return "redirect:register";
     }
 
-    @Autowired
-    public void test(Object numberList) {
-        System.out.println(numberList);
-    }
-
 }

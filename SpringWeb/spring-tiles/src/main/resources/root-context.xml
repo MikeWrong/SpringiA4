@@ -12,12 +12,6 @@
 
     <!-- Root Context: defines shared resources visible to all other web components -->
 
-    <util:list id="numberList" value-type="java.lang.Integer">
-        <value>1</value>
-        <value>2</value>
-        <value>3</value>
-    </util:list>
-
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <!--<mvc:resources mapping="/resources/**" location="/resources/"/>-->
 
 </beans>
