@@ -34,12 +34,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
     // 配置静态资源的处理
+    // Mapped URL path [/**] onto handler of type DefaultServletHttpRequestHandler
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
 
     // 根据给定规则配置静态资源的处理
+    // Mapped URL path [/resources/**] onto handler of type ResourceHttpRequestHandler
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
