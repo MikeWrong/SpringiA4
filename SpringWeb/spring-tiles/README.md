@@ -3,10 +3,6 @@ Spring Titles
 
 > 使用 <a href="http://tiles.apache.org/framework/tutorial/index.html">Apache Titles 3 </a>
 
-```text
-当配置TilesConfiguration的时候，所要设置的最重要的属性就是definitions；
-这个属性接受一个String数组，其中每一条都指定一个Tile定义的XML文件。(对于Spring来讲，我们在"/WEB-INF/layout/"目录下查找tiles.xml）
-```
 - Tiles 3 as a Maven dependency
 
 ```xml
@@ -30,6 +26,11 @@ Spring Titles
     <artifactId>tiles-jsp</artifactId>
     <version>3.0.5</version>
   </dependency>
+```
+
+```text
+当配置TilesConfiguration的时候，所要设置的最重要的属性就是definitions；
+这个属性接受一个String数组，其中每一条都指定一个Tile定义的XML文件。(对于Spring来讲，我们在"/WEB-INF/layout/"目录下查找tiles.xml）
 ```
 
 - JavaConfig 配置方式
