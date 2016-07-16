@@ -8,33 +8,33 @@ Spring Titles
 >     <div class="section">
 >         <h4>Summary<a name="Summary"></a></42>
 >         <ol style="list-style-type: decimal">
->             <li><a href="./pattern.html">The "composite view" pattern</a></li>
->             <li><a href="./configuration.html">Configuring your web application</a></li>
->             <li><a href="./basic/index.html">Basic Usage</a>
+>             <li><a href="http://tiles.apache.org/framework/tutorial/pattern.html">The "composite view" pattern</a></li>
+>             <li><a href="http://tiles.apache.org/framework/tutorial/configuration.html">Configuring your web application</a></li>
+>             <li><a href="http://tiles.apache.org/framework/tutorial/basic/index.html">Basic Usage</a>
 >                 <ol style="list-style-type: decimal">
->                     <li><a href="./basic/concepts.html">Tiles Concepts</a></li>
->                     <li><a href="./basic/pages.html">Creating Tiles Pages</a></li>
+>                     <li><a href="http://tiles.apache.org/framework/tutorial/basic/concepts.html">Tiles Concepts</a></li>
+>                     <li><a href="http://tiles.apache.org/framework/tutorial/basic/pages.html">Creating Tiles Pages</a></li>
 >                 </ol>
 >             </li>
->             <li><a href="./advanced/index.html">Advanced Topics</a>
+>             <li><a href="http://tiles.apache.org/framework/tutorial/advanced/index.html">Advanced Topics</a>
 >                 <ol style="list-style-type: decimal">
->                     <li><a href="./advanced/nesting-extending.html">Nesting and Extending Definitions</a></li>
->                     <li><a href="./advanced/list-attributes.html">List Attributes</a></li>
->                     <li><a href="./advanced/runtime.html">Runtime Composition</a></li>
->                     <li><a href="./advanced/preparer.html">View Preparers</a></li>
->                     <li><a href="./advanced/utils.html">Rendering Utilities</a></li>
->                     <li><a href="./advanced/l10n.html">Tiles Localization</a></li>
->                     <li><a href="./advanced/wildcard.html">Wildcard support</a></li>
->                     <li><a href="./advanced/el-support.html">EL support</a></li>
->                     <li><a href="./advanced/attribute-rendering.html">Attribute rendering</a></li>
->                     <li><a href="./advanced/multiple-containers.html">Using multiple containers</a></li>
->                     <li><a href="./advanced/security.html">Security</a></li>
+>                     <li><a href="http://tiles.apache.org/framework/tutorial/advanced/nesting-extending.html">Nesting and Extending Definitions</a></li>
+>                     <li><a href="http://tiles.apache.org/framework/tutorial/advanced/list-attributes.html">List Attributes</a></li>
+>                     <li><a href="http://tiles.apache.org/framework/tutorial/advanced/runtime.html">Runtime Composition</a></li>
+>                     <li><a href="http://tiles.apache.org/framework/tutorial/advanced/preparer.html">View Preparers</a></li>
+>                     <li><a href="http://tiles.apache.org/framework/tutorial/advanced/utils.html">Rendering Utilities</a></li>
+>                     <li><a href="http://tiles.apache.org/framework/tutorial/advanced/l10n.html">Tiles Localization</a></li>
+>                     <li><a href="http://tiles.apache.org/framework/tutorial/advanced/wildcard.html">Wildcard support</a></li>
+>                     <li><a href="http://tiles.apache.org/framework/tutorial/advanced/el-support.html">EL support</a></li>
+>                     <li><a href="http://tiles.apache.org/framework/tutorial/advanced/attribute-rendering.html">Attribute rendering</a></li>
+>                     <li><a href="http://tiles.apache.org/framework/tutorial/advanced/multiple-containers.html">Using multiple containers</a></li>
+>                     <li><a href="http://tiles.apache.org/framework/tutorial/advanced/security.html">Security</a></li>
 >                 </ol>
 >             </li>
->             <li><a href="./integration/index.html">Integration with other technologies</a>
+>             <li><a href="http://tiles.apache.org/framework/tutorial/integration/index.html">Integration with other technologies</a>
 >                 <ol style="list-style-type: decimal">
->                     <li><a href="./integration/frameworks.html">Integration with other frameworks</a></li>
->                     <li><a href="./integration/view.html">Integration with other view technologies</a></li>
+>                     <li><a href="http://tiles.apache.org/framework/tutorial/integration/frameworks.html">Integration with other frameworks</a></li>
+>                     <li><a href="http://tiles.apache.org/framework/tutorial/integration/view.html">Integration with other view technologies</a></li>
 >                 </ol>
 >             </li>
 >         </ol>
