@@ -4,7 +4,9 @@ Spring Titles
 > 使用 Apache Titles 3
 
 ```text
-当配置TilesConfiguration的时候，所要设置的最重要的属性就是definitions；这个属性接受一个String数组，其中每一条都指定一个Tile定义的XML文件。（对于Spring来讲，我们在"/WEB-INF/layout/"目录下查找tiles.xml）
+当配置TilesConfiguration的时候，所要设置的最重要的属性就是definitions；
+这个属性接受一个String数组，其中每一条都指定一个Tile定义的XML文件。
+（对于Spring来讲，我们在"/WEB-INF/layout/"目录下查找tiles.xml）
 ```
 
 ```java
