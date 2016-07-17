@@ -99,6 +99,8 @@ Spring Titles
         TilesConfigurer tiles = new TilesConfigurer();
         tiles.setDefinitions("/WEB-INF/layout/tiles.xml");
         
+        // 参见: CompleteAutoloadTilesContainerFactory
+        // tiles.setCompleteAutoload(true);
         // 遍历"/WEB-INF/"的所有子目录来查找Tile定义
 	    // tiles.setDefinitions("/WEB-INF/**/tiles.xml");
 	    // 配置多个Tile定义的文件源
