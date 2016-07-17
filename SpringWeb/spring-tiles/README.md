@@ -43,7 +43,7 @@ Spring Titles
 >
 > #### Tips
 >
-> - CompleteAutoloadTilesContainerFactory
+> 1). CompleteAutoloadTilesContainerFactory
 >
 > ![CompleteAutoloadTilesContainerFactory](CompleteAutoloadTilesContainerFactory.png)
 >
