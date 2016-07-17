@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE tiles-definitions PUBLIC
         "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
@@ -11,8 +11,11 @@
 
     <definition name="registerForm" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/registerForm.jsp"/>
-        <!--?? el ??? -->
-        <put-attribute name="el" expression="1 + 2 = ${1+2}"/>
+        <put-attribute name="el">
+            <definition template="el.jsp">
+                <put-attribute name="inline" expression="1 + 3 = ${1+3}"/>
+            </definition>
+        </put-attribute>
     </definition>
 
 </tiles-definitions>
