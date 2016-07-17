@@ -37,6 +37,7 @@ Spring Titles
 >                     <li><a href="http://tiles.apache.org/framework/tutorial/integration/view.html">Integration with other view technologies</a></li>
 >                 </ol>
 >             </li>
+>             <li><a href="http://tiles.apache.org/framework/tiles-jsp/tagreference.html">JSP support - Tag reference report</a></li>
 >         </ol>
 >     </div>
 > </div>
