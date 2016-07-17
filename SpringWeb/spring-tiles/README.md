@@ -40,7 +40,11 @@ Spring Titles
 >         </ol>
 >     </div>
 > </div>
-![CompleteAutoloadTilesContainerFactory](CompleteAutoloadTilesContainerFactory.png)
+>
+> #### Tips
+> 
+> ![CompleteAutoloadTilesContainerFactory](CompleteAutoloadTilesContainerFactory.png)
+>
 > <div class="block">Tiles container factory that:
 >     <ul>
 >         <li>create supporting objects for Velocity and FreeMarker;</li>
