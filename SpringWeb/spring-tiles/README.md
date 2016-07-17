@@ -40,6 +40,20 @@ Spring Titles
 >         </ol>
 >     </div>
 > </div>
+![CompleteAutoloadTilesContainerFactory](CompleteAutoloadTilesContainerFactory.png)
+> <div class="block">Tiles container factory that:
+>     <ul>
+>         <li>create supporting objects for Velocity and FreeMarker;</li>
+>         <li>create renderers for Velocity, FreeMarker, and Mustache templates;</li>
+>         <li>allows using EL, MVEL and OGNL as attribute expressions;</li>
+>         <li>allows using Wildcards and Regular Expressions in definition names;</li>
+>         <li>loads Tiles 1.x definition files;</li>
+>         <li>loads all the definition files that have the "tiles*.xml" pattern under
+>             <code>/WEB-INF</code> directory (and subdirectories) and under
+>             <code>META-INF</code> directories (and subdirectories) in every jar.
+>         </li>
+>     </ul>
+> </div>
 
 - Tiles 3 as a Maven dependency
 
