@@ -42,7 +42,9 @@ Spring Titles
 > </div>
 >
 > #### Tips
-> 
+>
+> - CompleteAutoloadTilesContainerFactory
+>
 > ![CompleteAutoloadTilesContainerFactory](CompleteAutoloadTilesContainerFactory.png)
 >
 > <div class="block">Tiles container factory that:
