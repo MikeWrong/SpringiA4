@@ -1,3 +1,6 @@
+Spring Web XMLConfig
+--
+- 方案一
 ```xml
 <!-- web.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
@@ -36,7 +39,8 @@
     </servlet-mapping>
 
 </web-app>
-
+```
+```xml
 <!-- root-context.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -50,7 +54,8 @@
     <!--<aop:component-scan base-package="me.caiyuan.spring.web"/>-->
 
 </beans>
-
+```
+```xml
 <!-- servlet-context.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -72,6 +77,7 @@
 
 ```
 
+- 方案二
 ```xml
 <!-- web.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
