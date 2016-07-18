@@ -1,6 +1,8 @@
 Spring Web XMLConfig
 --
-- 方案一
+
+- 方案一 : web.xml + Spring XMLConfig
+
 ```xml
 <!-- web.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
@@ -77,7 +79,8 @@ Spring Web XMLConfig
 
 ```
 
-- 方案二
+- 方案二 : web.xml + Annotation
+
 ```xml
 <!-- web.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
