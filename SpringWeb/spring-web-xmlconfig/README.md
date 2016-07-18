@@ -90,6 +90,8 @@ Spring Web XMLConfig
 		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
+    <!-- 配置 ContextLoaderListener 创建的应用上下文 -->
+
     <context-param>
         <param-name>contextClass</param-name>
         <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
@@ -104,6 +106,8 @@ Spring Web XMLConfig
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+    <!-- 配置 DispatcherServlet 创建的应用上下文 -->
+    
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
