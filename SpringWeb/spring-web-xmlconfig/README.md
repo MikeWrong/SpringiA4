@@ -47,7 +47,7 @@
          http://www.springframework.org/schema/context
          http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <aop:component-scan base-package="me.caiyuan.spring.web"/>
+    <!--<aop:component-scan base-package="me.caiyuan.spring.web"/>-->
 
 </beans>
 
@@ -61,7 +61,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <aop:component-scan base-package="me.caiyuan.spring.web.controller"/>
+    <!--<aop:component-scan base-package="me.caiyuan.spring.web.controller"/>-->
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
