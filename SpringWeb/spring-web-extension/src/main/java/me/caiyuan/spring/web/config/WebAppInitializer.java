@@ -30,8 +30,4 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
         return new Filter[]{new CustomFilter()};
     }
 
-    protected void customizeRegistration(Dynamic registration) {
-        registration.setMultipartConfig(new MultipartConfigElement("/upload/"));
-    }
-
 }
