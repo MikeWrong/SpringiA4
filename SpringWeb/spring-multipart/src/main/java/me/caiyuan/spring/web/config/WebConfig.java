@@ -1,6 +1,7 @@
 package me.caiyuan.spring.web.config;
 
 import me.caiyuan.spring.web.controller.WebPackage;
+import me.caiyuan.spring.web.filter.CustomFilter;
 import me.caiyuan.spring.web.servlet.CustomServlet;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -13,9 +14,10 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration.Dynamic;
+import javax.servlet.ServletRegistration;
 
 /**
  * YUAN
@@ -54,8 +56,11 @@ public class WebConfig extends WebMvcConfigurerAdapter implements WebApplication
 
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
-        Dynamic customServlet = servletContext.addServlet("customServlet", CustomServlet.class);
-        customServlet.addMapping("/custom");
+        ServletRegistration.Dynamic customServlet = servletContext.addServlet("customServlet", CustomServlet.class);
+        customServlet.addMapping("/customServlet");
+
+        FilterRegistration.Dynamic customFilter = servletContext.addFilter("customFilter", CustomFilter.class);
+        customFilter.addMappingForServletNames(null, false, "customServlet");
     }
 
 }
