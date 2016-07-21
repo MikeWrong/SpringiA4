@@ -1,3 +1,14 @@
+### Diagram
+
+#### WebApplicationInitializer
+
+![aacds](aacds.png)
+
+#### WebMvcConfigurer
+
+![wmc](wmc.png)
+
+### Extension
 
 #### 添加其它 Servlet 和 Filter
 
@@ -30,11 +41,3 @@ protected Filter[] getServletFilters() {
     return new Filter[]{new CustomFilter()};
 }
 ```
-
-#### WebApplicationInitializer
-
-![aacds](aacds.png)
-
-#### WebMvcConfigurer
-
-![wmc](wmc.png)
