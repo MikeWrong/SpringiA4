@@ -31,3 +31,6 @@ protected Filter[] getServletFilters() {
 }
 ```
 
+#### WebApplicationInitializer
+
+![aacds](aacds.png)
