@@ -12,6 +12,7 @@
         <module>spring-jsp</module>
         <module>spring-tiles</module>
         <module>spring-thymeleaf</module>
+        <module>spring-multipart</module>
     </modules>
 
     <name>SpringWeb</name>
