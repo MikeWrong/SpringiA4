@@ -9,6 +9,7 @@
     <modules>
         <module>spring-web-javaconfig</module>
         <module>spring-web-xmlconfig</module>
+        <module>spring-web-extension</module>
         <module>spring-jsp</module>
         <module>spring-tiles</module>
         <module>spring-thymeleaf</module>
