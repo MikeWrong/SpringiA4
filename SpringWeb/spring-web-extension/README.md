@@ -8,7 +8,29 @@
 
 ![wmc](wmc.png)
 
+#### View
+
+![view1](view1.png)
+![view2](view2.png)
+
 ### Extension
+
+####
+
+```xml
+<dependencies>
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-core</artifactId>
+        <version>2.7.5</version>
+    </dependency>
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.7.5</version>
+    </dependency>
+</dependencies>
+```
 
 #### 添加其它 Servlet 和 Filter
 
