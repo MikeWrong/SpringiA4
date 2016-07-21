@@ -1,7 +1,9 @@
 package me.caiyuan.spring.web.config;
 
+import me.caiyuan.spring.web.filter.CustomFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.Filter;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration.Dynamic;
 
@@ -21,6 +23,11 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 
     protected String[] getServletMappings() {
         return new String[]{"/"};
+    }
+
+    @Override
+    protected Filter[] getServletFilters() {
+        return new Filter[]{new CustomFilter()};
     }
 
     protected void customizeRegistration(Dynamic registration) {

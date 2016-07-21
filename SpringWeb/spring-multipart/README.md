@@ -21,3 +21,13 @@ public class WebConfig extends WebMvcConfigurerAdapter implements WebApplication
     }
 }
 ```
+
+> 如果只是注册 Filter ,并且该 Filter 映射到 DispatcherServlet 上的话,所需做的仅仅重载 AbstractDispatcherServletInitializer 的 getServletFilters 方法。
+
+```java
+@Override
+protected Filter[] getServletFilters() {
+    return new Filter[]{new CustomFilter()};
+}
+```
+
