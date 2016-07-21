@@ -2,6 +2,9 @@ package me.caiyuan.spring.web.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration;
+
 /**
  * YUAN
  * 7/11/16.
@@ -18,6 +21,10 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 
     protected String[] getServletMappings() {
         return new String[]{"/"};
+    }
+
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setMultipartConfig(new MultipartConfigElement("/upload/"));
     }
 
 }

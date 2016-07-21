@@ -15,6 +15,9 @@ spring-web
 <br/>
 <a href="spittles/register">表单参数(Form Parmeter)</a>
 <br/>
+<br/>
+<a href="custom">CustomServlet</a>
+<br/>
 
 </body>
 </html>
