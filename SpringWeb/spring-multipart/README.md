@@ -1,5 +1,5 @@
 
-#### 添加其它 Servlet, Filter 和 Listener
+#### 添加其它 Servlet 和 Filter
 
 基于Java的初始化器(initializer)的一个好处就在于我们定义任意数量的初始化器;因此,如果我们想往Web容器中注册其它组件的话,只需创建一个新的初始化器就可以了;
 最简单的方法就是实现Spring的WebApplicationInitializer。
