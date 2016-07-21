@@ -18,6 +18,8 @@ spring-web
 <br/>
 <a href="customServlet">CustomServlet</a>
 <br/>
+<a href="annotationServlet">AnnotationServlet</a>
+<br/>
 <br/>
 <a href="multipart">Multipart</a>
 <br/>
