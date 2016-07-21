@@ -34,3 +34,7 @@ protected Filter[] getServletFilters() {
 #### WebApplicationInitializer
 
 ![aacds](aacds.png)
+
+#### WebMvcConfigurer
+
+![wmc](wmc.png)
