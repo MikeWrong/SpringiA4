@@ -1,6 +1,7 @@
 package me.caiyuan.spring.web.filter;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.PrintWriter;
 
