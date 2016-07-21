@@ -15,7 +15,7 @@
 
 ### Extension
 
-####
+#### MappingJackson2JsonView
 
 ```xml
 <dependencies>
@@ -30,6 +30,28 @@
         <version>2.7.5</version>
     </dependency>
 </dependencies>
+```
+
+```java
+// WebConfig
+
+@Bean
+public MappingJackson2JsonView mappingJackson2JsonView() {
+    return new MappingJackson2JsonView();
+}
+
+// Controller
+
+@Controller
+public class JsonResponseController {
+
+    @ResponseBody
+    @RequestMapping("json")
+    public Object json() {
+        return Arrays.asList("value1", "value2", "value3", "value4", "value5");
+    }
+
+}
 ```
 
 #### 添加其它 Servlet 和 Filter

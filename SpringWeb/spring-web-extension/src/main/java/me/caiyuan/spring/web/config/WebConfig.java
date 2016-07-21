@@ -13,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
@@ -38,6 +39,11 @@ public class WebConfig extends WebMvcConfigurerAdapter implements WebApplication
         resolver.setSuffix(".jsp");
         resolver.setExposeContextBeansAsAttributes(true);
         return resolver;
+    }
+
+    @Bean
+    public MappingJackson2JsonView mappingJackson2JsonView() {
+        return new MappingJackson2JsonView();
     }
 
     // 配置静态资源的处理
