@@ -18,8 +18,6 @@ public class WebConfig extends WebMvcConfigurerAdapter implements WebApplication
 
         FilterRegistration.Dynamic customFilter = servletContext.addFilter("customFilter", CustomFilter.class);
         customFilter.addMappingForServletNames(null, false, "customServlet");
-    
-        servletContext.addListener(CustomListener.class);
     }
 }
 ```
