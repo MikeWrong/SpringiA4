@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -22,7 +21,6 @@ public class HomeController {
         return "home";
     }
 
-    @ResponseBody
     @RequestMapping(value = "/registration", method = POST)
     public String registration(
             @RequestPart("picture") byte[] picture,
@@ -31,7 +29,7 @@ public class HomeController {
 
         System.out.println(picture);
 
-        return "ok";
+        return "home";
     }
 
 }
