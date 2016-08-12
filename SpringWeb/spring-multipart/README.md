@@ -32,5 +32,57 @@ Content-Type: image/jpeg
 
 ##### CommonsMultipartResolver
 
+```java
+// WebConfig.java
+    @Bean
+    public MultipartResolver multipartResolver() throws IOException {
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+        multipartResolver.setUploadTempDir(new FileSystemResource("/tmp"));
+        return multipartResolver;
+    }
+```
+
 ##### StandardServletMultipartResolver
 
+```java
+// WebConfig.java
+    @Bean
+    public MultipartResolver multipartResolver() throws IOException {
+        return new StandardServletMultipartResolver();
+    }
+    
+// WebAppInitializer.java
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setMultipartConfig(new MultipartConfigElement("/tmp", 2097152, 4194304, 0));
+    }
+```
+
+#### 使用 multipart 解析器
+
+```java
+// HomeController.java
+    @ResponseBody
+    @RequestMapping(value = "/registration", method = POST)
+    public String registration(
+            @RequestPart("picture") byte[] picture,
+            HttpServletRequest request) {
+
+        // FileCopyUtils.copy(picture, out);
+
+        if (request instanceof MultipartRequest) {
+            //
+        }
+
+        return "ok";
+    }
+```
+
+```html
+    <form method="post" enctype="multipart/form-data" action="/registration">
+        <label>Picture:
+            <input name="picture" type="file" accept="image/jpeg,image/png,image/gif">
+        </label>
+        <button type="submit">Submit</button>
+    </form>
+```
