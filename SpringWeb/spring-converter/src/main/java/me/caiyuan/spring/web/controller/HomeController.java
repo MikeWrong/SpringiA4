@@ -1,12 +1,11 @@
 package me.caiyuan.spring.web.controller;
 
+import me.caiyuan.spring.web.bean.Spitter;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartRequest;
-
-import javax.servlet.http.HttpServletRequest;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -27,13 +26,10 @@ public class HomeController {
     @RequestMapping(value = "/registration", method = POST)
     public String registration(
             @RequestPart("picture") byte[] picture,
-            HttpServletRequest request) {
+            Spitter spitter,
+            Errors errors) {
 
-        // FileCopyUtils.copy(picture, out);
-
-        if (request instanceof MultipartRequest) {
-            //
-        }
+        System.out.println(picture);
 
         return "ok";
     }

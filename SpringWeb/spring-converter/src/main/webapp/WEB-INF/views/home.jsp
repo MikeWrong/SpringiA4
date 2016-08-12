@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,12 +8,25 @@
 </head>
 <body>
 
-<form method="post" enctype="multipart/form-data" action="/registration">
+<s:url value="registration" var="registration"/>
+
+<sf:errors path="*"/>
+
+<sf:form method="post" commandName="spitter" enctype="multipart/form-data" action="${registration}">
     <label>Picture:
         <input name="picture" type="file" accept="image/jpeg,image/png,image/gif">
     </label>
+    <br/>
+    <label>Name:
+        <input name="name" type="text">
+    </label>
+    <br/>
+    <label>Birthday:
+        <input name="birthday" type="text">
+    </label>
+    <br/>
     <button type="submit">Submit</button>
-</form>
+</sf:form>
 
 </body>
 </html>
