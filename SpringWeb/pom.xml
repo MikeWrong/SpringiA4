@@ -14,6 +14,7 @@
         <module>spring-tiles</module>
         <module>spring-thymeleaf</module>
         <module>spring-multipart</module>
+        <module>spring-converter</module>
     </modules>
 
     <name>SpringWeb</name>
