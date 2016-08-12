@@ -4,14 +4,17 @@ import me.caiyuan.spring.web.controller.WebPackage;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.web.multipart.MultipartResolver;
-import org.springframework.web.multipart.support.StandardServletMultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import java.io.IOException;
 
 /**
  * YUAN
@@ -48,9 +51,13 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     // 配置 multipart 解析器
     @Bean
-    public MultipartResolver multipartResolver() {
+    public MultipartResolver multipartResolver() throws IOException {
         // Require servlet 3.0 or higher
-        return new StandardServletMultipartResolver();
+        // return new StandardServletMultipartResolver();
+
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+        multipartResolver.setUploadTempDir(new FileSystemResource("/tmp"));
+        return multipartResolver;
     }
 
 }
