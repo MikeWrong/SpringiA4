@@ -15,4 +15,4 @@ Spring Web
 
 #### Spring MVC 的高级技术
 
-- <a href="multpart">Spring Multipart</a>
+- <a href="spring-multpart">Spring Multipart</a>
