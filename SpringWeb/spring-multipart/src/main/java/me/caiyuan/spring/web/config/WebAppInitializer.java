@@ -3,7 +3,7 @@ package me.caiyuan.spring.web.config;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.MultipartConfigElement;
-import javax.servlet.ServletRegistration.Dynamic;
+import javax.servlet.ServletRegistration;
 
 /**
  * YUAN
@@ -23,8 +23,9 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
         return new String[]{"/"};
     }
 
-    protected void customizeRegistration(Dynamic registration) {
-        registration.setMultipartConfig(new MultipartConfigElement("/upload/"));
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setMultipartConfig(new MultipartConfigElement("/tmp", 2097152, 4194304, 0));
     }
 
 }
