@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -21,8 +22,9 @@ public class HomeController {
         return "home";
     }
 
+    @ResponseBody
     @RequestMapping(value = "/registration", method = POST)
-    public String registration(
+    public Object registration(
             @RequestPart("picture") byte[] picture,
             Spitter spitter,
             Errors errors) {
@@ -32,8 +34,9 @@ public class HomeController {
         }
 
         System.out.println(picture.length);
+        System.out.println(spitter);
 
-        return "home";
+        return spitter;
     }
 
 }

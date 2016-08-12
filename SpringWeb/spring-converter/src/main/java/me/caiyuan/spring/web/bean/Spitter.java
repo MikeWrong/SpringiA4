@@ -6,18 +6,9 @@ import java.util.Date;
 
 public class Spitter {
 
-    private String picture;
     private String name;
-    @DateTimeFormat
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
-
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
 
     public String getName() {
         return name;
@@ -34,4 +25,5 @@ public class Spitter {
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
+
 }
