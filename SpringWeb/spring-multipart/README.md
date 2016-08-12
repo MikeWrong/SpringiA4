@@ -58,22 +58,25 @@ StandardServletMultipartResolver 需要设置文件上传的临时目录, 否则
 - 如果我们采用Servlet初始化类的方法来配置DispatcherServlet的话, 这个初始化类应该已经实现了WebApplicationInitializer,
   那我们可以在Servlet registration上调用setMultipartConfig()方法, 传入一个MultipartConfigElement实例。
   如下最基本的DispatcherServlet multipart 配置:
-  ```java
-    DispatcherServlet ds = new DispatcherServlet();
-    Dynamic registration = context.addServlet("appServlet", ds);
-    registration.addMapping("/");
-    registration.setMultipartConfig(
-          new MultipartConfigElement("/tmp")    
-      );
-  ```
+
+```java
+  DispatcherServlet ds = new DispatcherServlet();
+  Dynamic registration = context.addServlet("appServlet", ds);
+  registration.addMapping("/");
+  registration.setMultipartConfig(
+        new MultipartConfigElement("/tmp")    
+    );
+```
+
 - 如果我们配置的 DispatcherServlet 的 Servlet 初始化类继承了 AbstractAnnotationConfigDispatcherServletInitializer 或 AbstractDispatcherServletInitializer 的话,
   那么我们不会直接创建 DispatcherServlet 实例并将其注册到 Servlet 上下文中。但是我们可以重载 customizeRegistration(Dynamic registration) 方法类配置 multipart 的具体细节:
-  ```java
-    @Override
-    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-        registration.setMultipartConfig(new MultipartConfigElement("/tmp", 2097152, 4194304, 0));
-    }
-  ```
+
+```java
+  @Override
+  protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+      registration.setMultipartConfig(new MultipartConfigElement("/tmp", 2097152, 4194304, 0));
+  }
+```
 
 _完整配置如下_
 
