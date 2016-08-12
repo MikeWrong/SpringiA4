@@ -10,8 +10,6 @@
 
 <s:url value="registration" var="registration"/>
 
-<sf:errors path="*"/>
-
 <sf:form method="post" commandName="spitter" enctype="multipart/form-data" action="${registration}">
     <label>Picture:
         <input name="picture" type="file" accept="image/jpeg,image/png,image/gif">
@@ -26,6 +24,9 @@
     </label>
     <br/>
     <button type="submit">Submit</button>
+    <br/>
+    <br/>
+    <sf:errors path="*"/>
 </sf:form>
 
 </body>

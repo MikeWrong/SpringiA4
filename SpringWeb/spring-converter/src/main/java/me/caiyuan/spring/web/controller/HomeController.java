@@ -27,7 +27,11 @@ public class HomeController {
             Spitter spitter,
             Errors errors) {
 
-        System.out.println(picture);
+        if (errors.hasErrors()) {
+            System.out.println(errors);
+        }
+
+        System.out.println(picture.length);
 
         return "home";
     }

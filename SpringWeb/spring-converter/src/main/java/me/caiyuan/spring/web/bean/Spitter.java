@@ -1,11 +1,14 @@
 package me.caiyuan.spring.web.bean;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Spitter {
 
     private String picture;
     private String name;
+    @DateTimeFormat
     private Date birthday;
 
     public String getPicture() {
