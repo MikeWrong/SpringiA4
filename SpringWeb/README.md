@@ -17,3 +17,5 @@ Spring Web
 
 - <a href="spring-multipart">Spring Multipart</a>
 - <a href="spring-converter">Spring Converter</a>
+- <a href="spring-exception">Spring Exception</a>
+- <a href="spring-advice">Spring Controller Advice</a>
