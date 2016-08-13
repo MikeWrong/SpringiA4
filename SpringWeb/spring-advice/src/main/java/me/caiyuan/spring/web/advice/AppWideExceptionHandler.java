@@ -15,9 +15,12 @@ public class AppWideExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
     public ModelAndView exceptionHandler(RuntimeException ex, HttpServletRequest request) {
+
         ModelAndView modelAndView = new ModelAndView("error");
         modelAndView.addObject("exception", ex);
+
         System.out.println(request);
+
         return modelAndView;
     }
 
