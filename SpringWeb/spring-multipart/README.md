@@ -123,3 +123,38 @@ _完整配置如下_
         <button type="submit">Submit</button>
     </form>
 ```
+
+#### javax.servlet.http.Part
+
+如果需要将应用程序部署到 Servlet 3.0 中, 那么会有一个 MultipartFile 的替代方案。Spring MVC 也能接受 javax.servlet.http.Part 作为控制器方法的参数。配置及使用如下:
+
+```java
+// WebAppInitializer.java
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setMultipartConfig(new MultipartConfigElement("/tmp", 2097152, 4194304, 0));
+    }
+    
+// HomeController.java
+    @ResponseBody
+    @RequestMapping(value = "/registration", method = POST)
+    public String registration(
+            @RequestPart("picture") Part picture,
+            HttpServletRequest request) {
+
+        if (request instanceof MultipartRequest) {
+            //
+            // MultipartFile.transferTo(File dest)
+        }
+
+        return "ok";
+    }
+```
+```html
+    <form method="post" enctype="multipart/form-data" action="/registration">
+        <label>Picture:
+            <input name="picture" type="file" accept="image/jpeg,image/png,image/gif">
+        </label>
+        <button type="submit">Submit</button>
+    </form>
+```
