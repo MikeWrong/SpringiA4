@@ -36,7 +36,7 @@ public class SpittleUndefineException extends RuntimeException {
 }
 ```
 
-#### @ExceptionHandler 编写异常的处理方法
+#### @ExceptionHandler 编写异常的处理方法 (将异常转换为一个普通的 Servlet 响应)
 ```java
 // HomeController.java
 // 仅只处理 HomeController 控制器或其子类控制器中的 SpittleUndefineException 异常
