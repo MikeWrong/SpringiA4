@@ -43,9 +43,11 @@ public class HomeController {
 
         if (redirect == 1) {
             model1.addAttribute(spitter);
+            model1.addAttribute("redirect", redirect);
             return "redirect:/redirect1";
         } else {
             model2.addFlashAttribute(spitter);
+            model2.addFlashAttribute("redirect", redirect);
             return "redirect:/redirect2";
         }
     }
