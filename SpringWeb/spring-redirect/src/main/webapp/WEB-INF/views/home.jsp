@@ -23,6 +23,13 @@
         <input name="birthday" type="text">
     </label>
     <br/>
+    <label>Redirect
+        <select name="redirect">
+            <option value="1" selected>General</option>
+            <option value="2">Flash</option>
+        </select>
+    </label>
+    <br/>
     <button type="submit">Submit</button>
     <br/>
     <br/>

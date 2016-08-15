@@ -4,6 +4,7 @@ import me.caiyuan.spring.web.bean.Spitter;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -22,11 +23,11 @@ public class HomeController {
         return "home";
     }
 
-    @ResponseBody
     @RequestMapping(value = "/registration", method = POST)
-    public Object registration(
+    public String registration(
             @RequestPart("picture") byte[] picture,
             Spitter spitter,
+            @RequestParam("redirect") int redirect,
             Errors errors) {
 
         if (errors.hasErrors()) {
@@ -36,6 +37,22 @@ public class HomeController {
         System.out.println(picture.length);
         System.out.println(spitter);
 
+        if (redirect == 1) {
+            return "redirect:/redirect1";
+        } else {
+            return "redirect:/redirect2";
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping("redirect1")
+    public Object redirect1(Spitter spitter) {
+        return spitter;
+    }
+
+    @ResponseBody
+    @RequestMapping("redirect2")
+    public Object redirect2(Spitter spitter) {
         return spitter;
     }
 
