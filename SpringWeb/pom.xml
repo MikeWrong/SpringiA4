@@ -17,6 +17,7 @@
         <module>spring-converter</module>
         <module>spring-exception</module>
         <module>spring-advice</module>
+        <module>spring-redirect</module>
     </modules>
 
     <name>SpringWeb</name>
