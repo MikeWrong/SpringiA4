@@ -18,6 +18,7 @@
         <module>spring-exception</module>
         <module>spring-advice</module>
         <module>spring-redirect</module>
+        <module>spring-webflow</module>
     </modules>
 
     <name>SpringWeb</name>
