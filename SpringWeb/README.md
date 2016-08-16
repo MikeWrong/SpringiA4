@@ -19,7 +19,7 @@ Spring Web
 - <a href="spring-converter">Spring Converter</a>
 - <a href="spring-exception">Spring Exception</a>
 - <a href="spring-advice">Spring Controller Advice</a>
-- <a href="spring-redrict">Spring Redirect</a>
+- <a href="spring-redirect">Spring Redirect</a>
 
 #### Spring Web Flow
 
